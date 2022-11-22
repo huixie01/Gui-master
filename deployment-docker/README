@@ -1,0 +1,69 @@
+In 4 steps, you can compile the AnalyticalEngine in any system running Docker
+
+1. Download source code
+   
+   Create a ${USERNAME} directory on your own
+
+   $ cd /root/${USERNAME}
+   $ git clone https://${USERNAME}@github.com/soderodev/GUI.git
+   $ git clone https://${USERNAME}@github.com/soderodev/AnalyticalEngine.git
+
+   Now you have two directory /root/${USERNAME}/GUI and /root/${USERNAME}/AnalyticalEngine
+
+   Remember these two pathes
+
+2. Create your container image
+
+   NOTE that you must use the GUI repository, NOT the AnalyticalEngine repo.
+
+   $ cd /root/${USERNAME}/GUI/deployment-docker
+
+   Edit Makefile set the following variables
+   	
+	container_name=gui-${USERNAME}
+	image_name=img-gui-${USERNAME}
+	gui_path=/root/${USERNAME}/GUI
+	engine_path=/root/${USERNAME}/AnalyticalEngine
+
+   Save the file and then run
+
+   $ make
+
+   This can take a while. Have a break
+
+3. Create the container
+
+   $ make run
+
+4. now your are in the contianer
+
+   $ cd /root/AnalyticEninge
+
+   Refer to INSTLALL to compile the AnalyticalEngine
+
+-----------------------------------------------------------
+The following is about integrating GUI and AnalyticEngine
+-----------------------------------------------------------
+
+Edit gui_project/settings/defaults.py
+-    '/Users/josh/Documents/dev/gui_project/templates',
++    '/root/GUI/templates',
+
+Edit Makefile and set correct GUI path and analyticengine path.
+
+   ** Compile the AnalyticEngine if you have not done that.
+
+   Edit the last line of /start-service.sh to change the hostname start the gui app
+
+   $ /start-service.sh
+
+
+2.2. daemon mode
+   $ make daemon
+
+4. Open browser
+
+   http://<AWS IP>:8000/dashboard/
+   test account:  qiuxi.zhang@sodero.com / qzhang
+
+5. Start the analytic engine container
