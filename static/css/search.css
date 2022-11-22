@@ -1,0 +1,152 @@
+/* event content */
+#session-body {
+	position: relative;
+	margin-top: 10px;
+	padding: 20px 15px 5px;
+}
+
+#search-bar {
+	height: 50px;
+	padding: 10px 15px 5px 15px;
+	z-index: 100;
+}
+
+#search-bar #search-box span {
+	font-size: 12px;
+	color: #555555;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#search-bar #search-box span {
+	background-color: #F4F4F4;
+}
+
+#search-bar #search-box span:hover {
+	cursor: pointer;
+}
+
+#protocol-tabs {
+	height: 120px;
+	position: relative;
+	padding: 0px 15px 10px 15px;
+}
+
+#protocol-tabs svg {
+	background-color: #FFF;
+}
+
+#protocol-tabs ul > li > a {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#protocol-tabs ul > li > a:focus {
+	outline: 0;
+}
+
+.session-header {
+	font-size: 12px;
+	font-weight: 500;
+	color: #AAAAAA;
+	margin-bottom: 10px;
+}
+
+#session-list .session-header {
+	margin-top: 5px;
+	position: absolute;
+}
+
+#session-rank {
+	width: 200px;
+	padding: 5px;
+	background-color: #FFF;
+	float: left;
+	position: absolute;
+}
+
+#session-rank .rank-title {
+	padding-left: 10px;
+	font-size: 12px;
+	font-weight: 400;
+	color: #969696;
+}
+
+#session-rank .rank {
+	margin-bottom: 15px;
+}
+
+/*b ar styles */
+.rank-chart .bar.positive {
+	fill: rgb(200, 200, 200);
+	opacity: 0.6;
+}
+
+.rank-chart text {
+	font: 10px sans-serif;
+}
+
+.rank-chart text.values {
+	font: 10px sans-serif;
+	opacity: 0.4;
+}
+
+.axis path, .axis line {
+	fill: none;
+	stroke: none;
+	shape-rendering: crispEdges;
+}
+
+#session-content {
+	position: relative;
+	margin-left: 210px;
+}
+
+#session-list {
+	background-color: #FFF;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#session-list.shrink {
+	margin-right: 210px;
+}
+
+#session-detail {
+	width: 200px;
+	padding: 5px;
+	background-color: #FFF;
+	float: right;
+	height: 500px;
+	right: 0px;
+	top: 0px;
+	display: none;
+	position: absolute;
+}
+
+#session-detail > ul {
+	list-style: none outside none;
+	height: 100%;
+	overflow: auto;
+}
+
+#session-detail > ul > li {
+	font-size: 12px;
+	line-height: 15px;
+	font-weight: 300;
+	margin-top: 1px;
+	position: relative;
+}
+
+#session-detail > ul > li > span {
+	display: inline-block;
+}
+
+#session-detail > ul > li > span.name {
+	min-width: 70px;
+	font-weight: bold;
+}
+
+#session-detail > ul > li > span.value {
+}
+

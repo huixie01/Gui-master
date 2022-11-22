@@ -1,0 +1,676 @@
+.link {
+	stroke: #ccc;
+	stroke-width: 1px;
+}
+
+.node rect.border {
+	fill: none;
+	stroke-width: 6px;
+	stroke: #333333;
+	stroke-opacity: .3;
+	visibility: hidden;
+}
+
+.node.selected rect.border {
+	visibility: visible;
+}
+
+.warn {
+	fill: orange;
+}
+
+.error {
+	fill: red;
+}
+
+.info {
+	fill: blue;
+}
+
+.node text {
+	pointer-events: none;
+	font: 10px sans-serif;
+}
+
+.node:hover {
+	cursor: pointer;
+}
+
+.canvas .wrapper.outer > .background {
+	fill: #FFF;
+}
+.canvas .wrapper.inner > .background {
+	fill: #FFF;
+}
+.canvas .background {
+	fill: none;
+	/*cursor: move;*/
+}
+.canvas .panCanvas {
+	/*cursor: move;*/
+	/*opacity: 0.95;*/
+}
+
+/* report list */
+#report-list {
+	float: left;
+	overflow: auto;
+	bottom: 0px;
+	top: 62px;
+	position: fixed;
+	/*box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.05);*/
+	border-right: 1px solid #CCCCCC;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	overflow: visible;
+	z-index: 200;
+}
+
+#hidden-panel {
+	width: 25px;
+	display: none;
+}
+
+#hidden-panel span {
+	display: inline-block;
+	transform: translate(20px, 0px) rotate(90deg);
+	transform-origin: 0px 0px 0px;
+	white-space: nowrap;
+	margin: 10px 0px;
+	color: #AAAAAA;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 15px;
+	cursor: pointer;
+}
+
+#visual-panel {
+	padding: 8px 15px 15px 15px;
+	width: 220px;
+}
+
+#visual-panel .head-name {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 35px;
+	color: #999999;
+}
+
+#visual-panel .create-category {
+	line-height: 35px;
+	cursor: pointer;
+}
+
+#visual-panel .head-actions {
+	float: right;
+	display: none;
+}
+#report-list:hover .head-actions {
+	display: block;
+}
+#visual-panel .head-actions .hide-panel {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: #AAAAAA;
+	font-weight: 200;
+}
+#visual-panel .head-actions .hide-panel:hover {
+	cursor: pointer;
+	color: #666666;
+}
+
+.category {
+	margin-bottom: 15px;
+}
+
+.category .category-head {
+	font-size: 13px;
+	line-height: 15px;
+	padding: 10px 0px 8px 0px;
+	border-bottom: 2px solid #CCCCCC;
+	position: relative;
+}
+
+.category .category-head.editing {
+	padding: 0px;
+}
+
+.category .category-head .category-actions {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	background-color: #BABABA;
+	right: 6px;
+	top: 9px;
+	display: none;
+}
+
+.category .category-head .category-actions:hover {
+	cursor: pointer;
+}
+
+.category .category-head .category-actions.showing {
+	display: block;
+}
+
+.category:hover .category-head .category-actions {
+	display: block;
+}
+
+.category .category-head.editing .category-actions {
+	display: none;
+}
+
+.category .category-head .category-actions .caret {
+	position: absolute;
+	right: 3px;
+	top: 5px;
+	color: #FFFFFF;
+}
+
+.category .category-head .delete-category-actions {
+	margin-top: 3px;
+	display: none;
+}
+
+.category .category-head .delete-category-actions button {
+	height: 18px;
+	font-size: 12px;
+	line-height: 18px;
+	padding-top: 0px;
+}
+
+.category .category-head .delete-category-actions span {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #999999;
+}
+
+.category .category-reports > ul > li:hover .report-actions {
+	display: block;
+}
+
+.category .category-reports > ul > li .report-actions.showing {
+	display: block;
+}
+
+.category .category-reports > ul {
+	list-style: none outside none;
+}
+
+.category .category-reports > ul > li {
+	font-size: 13px;
+	line-height: 15px;
+	padding: 10px 8px 8px 8px;
+	font-weight: 300;
+	margin-top: 1px;
+	position: relative;
+}
+
+.category .category-reports > ul > li.editing {
+	padding: 0px;
+}
+
+.category .category-reports > ul > li:hover {
+	background-color: #DDDDDD;
+	cursor: pointer;
+}
+
+.category .category-reports > ul > li.active {
+	background-color: #D2D2D2;
+}
+
+.category .category-reports > ul > li .report-actions {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	background-color: #AAAAAA;
+	right: 6px;
+	top: 9px;
+	display: none;
+}
+
+.category .category-reports > ul > li:hover .report-actions {
+	display: block;
+}
+
+.category .category-reports > ul > li.editing .report-actions {
+	display: none;
+}
+
+.category .category-reports > ul > li .report-actions .caret {
+	position: absolute;
+	right: 3px;
+	top: 5px;
+	color: #EEEEEE;
+}
+
+.category .category-reports > ul > li > span.default-icon {
+	display: none;
+	margin-left: 3px;
+}
+
+.category .category-reports > ul > li.default > span.default-icon {
+	display: inline-block;
+}
+
+.category .category-reports > ul > li.editing > span.default-icon {
+	display: none;
+}
+
+.category .category-reports > ul > li .report-actions .unmark-default {
+	display: none;
+}
+
+.category .category-reports > ul > li.default .report-actions .mark-default {
+	display: none;
+}
+
+.category .category-reports > ul > li.default .report-actions .unmark-default {
+	display: block;
+}
+
+.category .category-reports > ul > li .delete-report-actions {
+	margin-top: 3px;
+	display: none;
+}
+
+.category .category-reports > ul > li .delete-report-actions button {
+	height: 18px;
+	font-size: 12px;
+	line-height: 18px;
+	padding-top: 0px;
+}
+
+.category .category-reports > ul > li .delete-report-actions span {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #999999;
+}
+
+.category .dropdown-normal {
+	top: 15px;
+}
+
+/* report content */
+#report-content {
+	margin-left: 220px;
+	position: relative;
+	padding: 5px 10px 5px;
+	z-index: 100;
+}
+
+#report-actions {
+	height: 35px;
+	padding: 3px 5px;
+}
+
+#report-actions .view-buttons, #report-actions .edit-buttons {
+	display: none;
+	float: right;
+}
+
+#report-actions .report-selected-label {
+	float: left;
+}
+
+#report-actions .report-selected-label span {
+	line-height: 28px;
+	font-size: 16px;
+	font-weight: 300;
+	color: #666666;
+}
+
+#report-actions .time-ctl {
+	top: 9px;
+	left: 50%;
+	width: 120px;
+	margin-left: -60px;
+	position: absolute;
+	/*margin: 0 auto;*/
+}
+
+#report-actions .time-ctl .glyphicon {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+#report-actions .time-ctl button {
+	width: 40px;
+}
+
+#report-actions .time-ctl button > span {
+	color: #2274ce;
+}
+
+#report-actions .time-ctl button > span.disabled {
+	color: #bdbdbd;
+}
+
+#report-actions .time-ctl button > div.refresh-progress {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0%;
+	height: 100%;
+	background-color: #EEEEEE;
+}
+
+#report-actions .edit-buttons {
+	/*display: none;*/
+}
+
+/* plot config */
+#plot-config {
+	position: absolute;
+	left: 20px;
+	top: 50px;
+	width: 450px;
+	z-index: 1500;
+	padding: 15px 15px;
+	border: 1px solid #D2D2D2;
+	background-color: #FFF;
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	display: none;
+}
+
+#plot-config .form-inline .form-group {
+	margin-right: 10px;
+}
+
+#plot-config .inline-divs > div {
+	display: inline-block;
+}
+
+#plot-config .div-left {
+	width: 98%;
+	padding-right: 130px;
+}
+
+#plot-config .div-right {
+	position: absolute;
+	right: 15px;
+	width: 120px;
+}
+
+#plot-config .dropdown button {
+	min-width: 120px;
+	text-align: left;
+	position: relative;
+}
+
+#plot-config .dropdown button .caret {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+}
+
+#plot-config label.title {
+	margin-bottom: 3px;
+	color: #808080;
+	display: block;
+}
+
+#plot-config .form-group {
+	margin-bottom: 10px;
+}
+
+#plot-config .form-group.plot-actions {
+	margin-top: 20px;
+	padding-bottom: 15px;
+}
+
+#plot-config #dimension-filter-key {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 25px;
+	min-width: 140px;
+	border: 1px solid #AAAAAA;
+	padding-left: 10px;
+	background-color: #EEEEEE;
+}
+
+#plot-config #dimension-filter-key:hover {
+	cursor: pointer;
+}
+
+#plot-config .placeholder {
+	font-size: 12px;
+	color: #BABABA;
+	font-weight: 500;
+}
+
+#plot-config .editable-area .control-group.form-group {
+	margin-bottom: 0px;
+}
+
+/* editable */
+.category .editable-input input {
+	width: 140px;
+}
+
+.category .editable-buttons {
+	margin-left: 5px;
+}
+
+.category .editable-buttons button {
+	border-radius: 12px;
+	height: 24px;
+	width: 24px;
+	line-height: 24px;
+	padding: 0px;
+	vertical-align: middle;
+	margin-left: 3px;
+	margin-top: 3px;
+}
+
+.category .editable-clear-x {
+	width: 0px;
+}
+
+/* grid config */
+.gridster {
+	margin: 0px auto;
+	opacity: 0.8;
+	transition: opacity 0.6s ease 0s;
+	padding: 0px;
+}
+
+.gridster > ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.gridster > ul > li {
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+	overflow: hidden;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.gridster > ul > li.editing {
+	z-index: 1500;
+}
+
+.gridster .modal-backdrop {
+	display: none;
+}
+
+.gridster .gs-w {
+	background: #FFF;
+}
+
+.gridster .player {
+	/*background: #BBB;*/
+	opacity: .9;
+}
+
+.gridster .preview-holder {
+	border: none !important;
+	background: #BBBBBB !important;
+	box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* report grid */
+.report-grid {
+
+}
+
+.report-grid .widget-header {
+	padding: 5px 5px;
+	text-align: left;
+	height: 22px;
+	border-bottom: 1px solid #ECECEC;
+	background-color: transparent;
+}
+
+.report-grid.editing .widget-header {
+	cursor: move;
+}
+
+.report-grid .widget-header {
+	position: relative;
+}
+
+.report-grid .widget-header > span {
+	font-size: 12px;
+	font-weight: 500;
+	color: #808080;
+	display: block;
+	float: left;
+}
+
+.report-grid .widget-header .plot-loading {
+	width: 16px;
+	height: 16px;
+	background-image: url('/static/img/loading.gif');
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	margin-top: -2px;
+	margin-right: 5px;
+	display: none;
+}
+
+.report-grid .widget-header .widget-actions {
+	float: right;
+	cursor: pointer;
+	display: none;
+}
+
+.report-grid .widget-header .delete-actions {
+	margin-top: -3px;
+	float: right;
+	display: none;
+}
+
+.report-grid .widget-header .delete-actions button {
+	height: 18px;
+	font-size: 12px;
+	line-height: 18px;
+	padding-top: 0px;
+}
+
+.report-grid.editing .widget-header .widget-actions {
+	display: block;
+}
+
+.report-grid > ul > li.editing .widget-header .widget-actions {
+	display: none;
+}
+
+.report-grid .widget-content {
+	height: 100%;
+	vertical-align: middle;
+}
+
+.report-grid .widget-new-plot {
+	border: 2px dashed #CCC;
+	background-color: transparent;
+	font-size: 13px;
+	color: #808080;
+}
+
+.report-grid .widget-new-plot:hover {
+	cursor: pointer;
+	color: #444954;
+	background: none repeat scroll 0% 0% rgba(150, 150, 150, 0.1);
+}
+
+.report-grid .widget-new-plot span {
+	display: inline-block;
+	margin-top: 90px;
+}
+
+.report-grid .widget-new-plot .gs-resize-handle {
+	display: none;
+}
+
+.report-grid ul.event-list {
+	height: 100%;
+	overflow: auto;
+	list-style: outside none none;
+	margin-bottom: 22px;
+}
+
+.report-grid ul.event-list > li {
+	font-size: 13px;
+	line-height: 15px;
+	padding: 8px 8px 8px 18px;
+	font-weight: 300;
+	text-align: left;
+	border-top: 1px solid #E4E4E4;
+	position: relative;
+}
+
+.report-grid ul.event-list > li > span {
+	display: block;
+}
+
+.report-grid ul.event-list > li > span.event-info {
+	color: #666666;
+	font-weight: 400;
+}
+
+.report-grid ul.event-list > li > span.event-time {
+	font-size: 11px;
+	color: #BABABA;
+	font-weight: 500;
+}
+
+.report-grid ul.event-list > li > span.event-severity {
+	position: absolute;
+	width: 6px;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+}
+
+.report-grid ul.event-list > li > span.event-severity.Warn {
+	background-color: #ebc171;
+}
+
+.report-grid ul.event-list > li > span.event-severity.Info {
+	background-color: #3A87AD;
+}
+
+.report-grid ul.event-list > li > span.event-severity.Error {
+	background-color: #e76f6d;
+}
+
+.report-grid ul.event-list > li:hover {
+	background-color: #F4F4F4;
+	cursor: pointer;
+}
+
+/* charts */
+.nvd3.nv-noData {
+	color: #BABABA;
+}
+

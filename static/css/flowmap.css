@@ -1,0 +1,535 @@
+#body.shrink {
+	margin-left: 333px;
+}
+
+#map-actions {
+	padding: 10px 15px;
+	height: 55px;
+}
+
+#map-actions div {
+	display: inline-block;
+}
+
+#map-actions ul {
+	width: 100%;
+}
+
+#map-actions .caret {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+}
+
+#map-actions label {
+	display: inline-block;
+	font-size: 12px;
+	color: #999999;
+	font-weight: bold;
+}
+
+#map-actions .dropdown {
+	margin-right: 5px;
+}
+
+#map-actions .dropdown button {
+	width: 100px;
+	text-align: left;
+}
+
+#map-actions #select-map button {
+	width: 200px;
+}
+
+#map-actions #change-show-count {
+	display: none;
+}
+
+#map-actions #change-show-count, #map-actions #change-label-mode {
+	margin-left: 10px;
+}
+
+#map-actions #change-label-mode {
+	margin-right: 0;
+}
+
+#map-actions #set-flowmap-name {
+	width: 200px;
+	margin-right: 8px;
+	float: left;
+}
+
+#map-actions #edit-flowmap button {
+	margin-right: 3px;
+}
+
+#map-actions #view-flowmap {
+	display: inline-block;
+}
+
+#map-actions #edit-flowmap {
+	display: none;
+}
+
+#map-actions #view-flowmap #edit-actions {
+	display: inline-block;
+}
+
+#map-actions #view-flowmap #delete-actions {
+	display: none;
+}
+
+#map-actions.deleting #view-flowmap #edit-actions {
+	display: none;
+}
+
+#map-actions.deleting #view-flowmap #delete-actions {
+	display: inline-block;
+}
+
+#map-actions.editing #view-flowmap {
+	display: none;
+}
+
+#map-actions.editing #edit-flowmap {
+	display: inline-block;
+}
+
+#map-actions.creating #view-flowmap {
+	display: none;
+}
+
+#map-actions.creating #edit-flowmap {
+	display: inline-block;
+}
+
+#change-link-mode button {
+	width: 200px;
+	text-align: left;
+}
+
+#action-right {
+	float: right;
+}
+
+#action-right div {
+	margin-left: 15px;
+}
+
+#select-map > ul > li {
+	position: relative;
+}
+
+#select-map > ul > li > span.default-icon {
+	top: 5px;
+	right: 10px;
+	position: absolute;
+	display: none;
+}
+
+#select-map > ul > li.active > span.default-icon {
+	color: #FFF;
+}
+
+#select-map > ul > li.default > span.default-icon {
+	display: inline-block;
+}
+
+/*#dm-show-type {
+ float: right;
+ margin-right: 10px;
+ height: 40px;
+ }
+
+ #dm-show-type button {
+ width: 80px;
+ }
+
+ #dm-by-type {
+ float: right;
+ margin-right: 10px;
+ height: 40px;
+ }
+
+ #dm-by-type button {
+ width: 80px;
+ }
+
+ #dm-view-type {
+ float: right;
+ margin-right: 10px;
+ height: 40px;
+ }
+
+ #dm-view-type button {
+ width: 100px;
+ }*/
+
+#chart {
+	padding: 0 0 0 0;
+}
+
+.image rect {
+
+}
+
+.node rect.frame {
+	fill: none;
+	stroke-width: 2px;
+	stroke-dasharray: 3, 2;
+	stroke: #333333;
+	stroke-opacity: .6;
+	visibility: hidden;
+}
+
+.node rect.remove {
+	fill: #FFF;
+	stroke: rgb(50, 50, 50);
+	stroke-width: 1;
+	opacity: .5;
+	visibility: hidden;
+}
+
+.node rect.remove:hover {
+	cursor: pointer;
+}
+
+g.node:hover rect.remove {
+	opacity: 1;
+}
+
+.node text.remove {
+	fill: #000;
+	font-size: 12px;
+	opacity: .5;
+	visibility: hidden;
+}
+
+g.node:hover text.remove {
+	opacity: 1;
+}
+
+.node text {
+	pointer-events: none;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.flow {
+	fill: none;
+	stroke: #000;
+	stroke-opacity: .2;
+}
+
+.flow:hover {
+	stroke-opacity: .3;
+	cursor: pointer;
+}
+
+.flow text {
+	stroke-opacity: .3;
+	font-weight: 100;
+	font-size: 11px;
+}
+
+.flow.selected {
+	stroke: #2274CE;
+	stroke-opacity: .5;
+}
+
+.flow.selected text {
+	stroke-opacity: .5;
+}
+
+.landing {
+	fill: none;
+	stroke: blue;
+	stroke-width: 2;
+	stroke-opacity: .0;
+}
+
+.landing.active {
+	stroke-opacity: .8;
+}
+
+.editor rect {
+	fill: #FFF;
+	stroke: rgb(50, 50, 50);
+	stroke-width: 1;
+	stroke-dasharray: 2, 1;
+	opacity: .2;
+}
+
+.editor text {
+	fill: #000;
+	font-size: 20px;
+	opacity: .2;
+	cursor: default;
+}
+
+.editor.active rect {
+	opacity: 1;
+	fill: #FFF;
+	stroke: blue;
+}
+
+.editor.active text {
+	opacity: 1;
+	color: blue;
+}
+
+.message-box rect {
+	fill: #FFFFCC;
+	stroke: rgb(200, 200, 200);
+	stroke-width: 1;
+	opacity: .9;
+}
+
+.message-box text {
+	font-weight: 600;
+	fill: rgb(100, 100, 100);
+	font-size: 12px;
+}
+
+.group {
+	fill: none;
+	stroke: #000;
+	stroke-width: 1;
+	stroke-dasharray: 5, 5;
+	stroke-opacity: .5;
+}
+
+.group.active {
+	stroke: blue;
+	stroke-width: 3;
+	stroke-opacity: .8;
+}
+
+#group-infos {
+}
+
+.group-info {
+	background-color: #262626;
+	position: absolute;
+	width: 150px;
+	left: 40px;
+	/*height: 35px;*/
+	margin-top: 3px;
+	/*border: 1px solid rgb(120,120,120);*/
+	border-radius: 8px;
+	padding: 5px 10px;
+	text-align: center;
+	vertical-align: bottom;
+}
+
+.group-info .group-name {
+	vertical-align: bottom;
+	color: #F2F2F2;
+	display: block;
+	font-size: 13px;
+	line-height: 15px;
+	font-weight: 500;
+}
+
+.group-info .group-name:hover {
+	text-decoration: none;
+}
+
+.group-info .remove {
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	background-color: #000;
+	color: #CCCCCC;
+	border: solid 1px #000;
+	border-radius: 9px;
+	font-size: 16px;
+	display: none;
+}
+
+.group-info .remove:hover {
+	color: #FFF;
+	cursor: pointer;
+}
+
+#confirm-edit-group {
+	position: absolute;
+	z-index: 1050;
+	top: 300px;
+	left: 500px;
+	background-color: #FFF;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+	padding: 5px 5px 0px 5px;
+	width: 150px;
+	display: none;
+}
+
+#confirm-edit-group div {
+	margin-bottom: 5px;
+}
+
+#confirm-edit-group div button {
+	width: 67px;
+}
+
+#confirm-edit-group .delete-title {
+	text-align: center;
+}
+
+#traffic-popup {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #FFF;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 200;
+	border-radius: 6px;
+	width: 300px;
+	cursor: default;
+	font-weight: 300;
+}
+
+#traffic-popup.shrink #traffic-popup-list {
+	display: none;
+}
+
+#traffic-popup.shrink #traffic-popup-trend {
+	display: none;
+}
+
+#traffic-popup-shrink {
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 6px;
+	height: 35px;
+	padding-left: 10px;
+	opacity: 0.1;
+	display: none;
+}
+
+#traffic-popup-expand {
+}
+
+#traffic-popup-title {
+	background-color: rgba(0, 0, 0, 0.4);
+	color: #FFF;
+	border-radius: 6px 6px 0 0;
+	height: 35px;
+	font-size: 13px;
+	line-height: 35px;
+	padding-left: 10px;
+}
+
+#traffic-popup-list {
+	font-size: 12px;
+	line-height: 25px;
+}
+
+#traffic-popup-list .traffic-item {
+	padding-left: 10px;
+}
+
+#traffic-popup-list .traffic-item.header span {
+	color: #BABABA;
+	font-size: 11px;
+	font-weight: 500;
+}
+
+#traffic-popup-list .traffic-item:not(.header)
+:hover {
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#traffic-popup-list .traffic-item.active {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+#traffic-popup-list span {
+	display: inline-block;
+}
+#traffic-popup-list span.protocol {
+	width: 120px;
+}
+
+#traffic-popup-list span.egress {
+	width: 80px;
+	color: #00FFB6;
+	font-size: 13px;
+}
+
+#traffic-popup-list span.ingress {
+	width: 80px;
+	color: #00FFFF;
+	font-size: 13px;
+}
+
+#traffic-popup-list-correlation {
+	display: none;
+}
+
+#traffic-popup-list-correlation span.link-mark {
+	width: 30px;
+}
+
+#traffic-popup-list-correlation span.correlation-type {
+	width: 40px;
+}
+
+#traffic-popup-list-correlation span.src-metric {
+	width: 70px;
+	color: #00FFB6;
+	font-size: 13px;
+}
+
+#traffic-popup-list-correlation span.dst-metric {
+	width: 120px;
+	color: #00FFFF;
+	font-size: 13px;
+}
+
+.axis path, .axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.x.axis path {
+	display: none;
+}
+
+.area1 {
+	fill: steelblue;
+}
+
+.area2 {
+	fill: #006633;
+}
+
+.line1 {
+	fill: none;
+	stroke: steelblue;
+	stroke-width: 1.5px;
+}
+
+.line2 {
+	fill: none;
+	stroke: #006633;
+	stroke-width: 1.5px;
+}
+
+div.helper.nodes {
+	width: 32px;
+	height: 64px;
+	opacity: 0.5;
+	background-image: url('/static/img/server-default-blue.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+div.helper.groups {
+	width: 1px;
+	height: 300px;
+	border-left: 2px dashed #AAAAAA;
+	opacity: 0.8;
+}
+

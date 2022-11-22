@@ -1,0 +1,757 @@
+/* base css for all views */
+table, tr, th, td, body, div, a, img, p, form, h1, h2, h3, h4, h5, h6, input, textarea, ul, li, dt, dd, dl .modal .ui-slider, .ui-slider-handle {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url('/static/img/noise.png') repeat #F2F2F2;
+	/*background-color: rgb(250, 250, 250);*/
+	font-family: 'Helvetica', Helvetica, Arial, Sans-serif;
+	font-size: 12px;
+}
+
+.tint {
+	background: url('/static/img/noise.png') repeat #F2F2F2;
+}
+
+.dark {
+	background: url('/static/img/noise.png') repeat #E5E5E5;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+/* content dropdowns */
+.dropdown-normal {
+	background-color: #FFF;
+	border: 1px solid #D2D2D2;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	z-index: 10000;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+.dropdown-normal.toggle {
+	display: block;
+}
+
+.dropdown-normal ul {
+	list-style: none outside none;
+	min-width: 130px;
+}
+
+.dropdown-normal ul li {
+	font-size: 13px;
+	line-height: 30px;
+	font-weight: 300;
+	padding-left: 10px;
+	position: relative;
+}
+
+.dropdown-normal ul li:hover {
+	background-color: #EEEEEE;
+	cursor: pointer;
+}
+
+.dropdown-normal ul li.active {
+	background-color: #305e9c;
+}
+
+*::-moz-selection {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #FFF;
+}
+
+/* error message */
+#alert-message {
+	display: none;
+	top: 63px;
+	position: fixed;
+	z-index: 2000;
+	left: 50%;
+	width: 300px;
+	margin-left: -150px;
+	border-radius: 0px;
+	padding: 10px;
+}
+
+/* left nav */
+#left-nav {
+	background-color: #333333;/*#33373E;*/
+	border-right-color: #1d1f24;/*#1C1E22;*/
+	border-right-style: solid;
+	border-right-width: 3px;
+	bottom: 0px;
+	color: #FFF;
+	font-size: 11px;
+	left: 0px;
+	padding-top: 60px;
+	position: fixed;
+	text-align: center;
+	top: 0px;
+	width: 93px;
+}
+
+#left-nav ul {
+	list-style: none outside none;
+	margin-top: 5px;
+}
+
+#left-nav ul li {
+	display: inline-block;
+	position: relative;
+}
+
+#left-nav .menu-link {
+	transition: all 200ms ease 0s;
+	display: block;
+	font-weight: normal;
+	position: relative;
+	height: 75px;
+	background: none repeat scroll 0% 0% transparent;
+	opacity: 0.5;
+	padding: 10px 15px;
+}
+
+#left-nav .menu-link:hover, #left-nav .menu-link.active {
+	opacity: 1;
+}
+
+#left-nav .menu-link:focus {
+	outline: 0;
+}
+
+#left-nav .menu-icon {
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#left-nav .menu-icon.icon-dashboard {
+	background: url('/static/img/nav-dashboard-s.png') no-repeat scroll center center transparent;
+	background-size: 32px 32px;
+}
+
+#left-nav .menu-icon.icon-events {
+	background: url('/static/img/nav-events-s.png') no-repeat scroll center center transparent;
+	background-size: 32px 32px;
+}
+
+#left-nav .menu-icon.icon-reports {
+	background: url('/static/img/nav-reports-s.png') no-repeat scroll center center transparent;
+	background-size: 32px 32px;
+}
+
+#left-nav .menu-icon.icon-flowmap {
+	background: url('/static/img/nav-flowmap-s.png') no-repeat scroll center center transparent;
+	background-size: 32px 32px;
+}
+
+#left-nav .menu-icon.icon-search {
+	background: url('/static/img/nav-search-s.png') no-repeat scroll center center transparent;
+	background-size: 32px 32px;
+}
+
+#left-nav .menu-label {
+	display: block;
+	vertical-align: bottom;
+	line-height: 24px;
+	color: #FFF;
+}
+
+#left-nav #logo {
+	background-image: url('/static/img/logo_notext.png');
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: 32px 27px;
+	cursor: pointer;
+	display: block;
+	height: 60px;
+	left: 0px;
+	line-height: 30px;
+	position: fixed;
+	top: 0px;
+	vertical-align: baseline;
+	width: 93px;
+	z-index: 5000;
+}
+
+/* top nav */
+#top-nav {
+	background-color: #333333;/*#33373E;*/
+	border-bottom-color: #1d1f24;
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+	left: 93px;
+	min-height: 63px;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	z-index: 5000;
+}
+
+#nav-utility {
+	color: #FFF;
+	floatrightfont-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	position: relative;
+	text-alignrightz-index: 5000;
+	-moz-box-sizing: border-box;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#global-filters {
+	float: left;
+}
+
+#global-filters #object-filter.selector {
+	display: none;
+}
+
+#global-filters #object-filter.selector {
+	display: none;
+}
+
+#global-filters #object-filter.selector .icon {
+	display: none;
+}
+
+/*#global-filters #object-filter.selector.show {
+ display: block;
+ }*/
+#global-filters #object-filter.selector .filter-panel {
+	position: fixed;
+	left: 93px;
+	width: 240px;
+	bottom: 0px;
+	border-radius: 0px;
+}
+
+#global-filters #object-filter.selector .btn-filter-type[filter-type="apps"] {
+	display: none;
+}
+
+.global-filter {
+	float: left;
+	min-width: 240px;
+	position: relative;
+	background: none repeat scroll 0% 0% transparent;
+}
+
+.global-filter .dropdown-menu-nav.toggle {
+	background-color: #1d1f24;
+}
+
+.global-filter #datetime-picker {
+	display: none;
+}
+
+.global-filter.picktime #datetime-picker {
+	display: block;
+	float: left;
+	margin-right: 35px;
+	height: 60px;
+}
+
+.global-filter .dropdown-actions {
+	display: none;
+}
+
+.global-filter .dropdown-actions button {
+	bottom: 0px;
+	display: block;
+	position: absolute;
+	top: 22px;
+	width: 22px;
+	height: 22px;
+	background-color: #FFF;
+	border: 4px solid #FFF;
+	border-radius: 50%;
+	text-indent: 0px;
+	opacity: .3;
+}
+
+.global-filter .dropdown-actions button span {
+	position: absolute;
+	top: 1px;
+	left: 1px;
+}
+
+.global-filter .dropdown-actions button.confirm {
+	right: 38px;
+	opacity: .8;
+}
+
+.global-filter .dropdown-actions button.cancel {
+	right: 10px;
+}
+
+.global-filter .dropdown-actions button:hover {
+	opacity: 1;
+}
+
+.global-filter > .label {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-weight: bold;
+	font-size: 10px;
+	color: #999999;
+	z-index: 100;
+}
+
+.global-filter a {
+	display: block;
+	padding: 10px 15px 0px 15px;
+	text-decoration: none;
+	vertical-align: top;
+	width: auto;
+}
+
+.global-filter.picktime a {
+	position: absolute;
+	right: 0px;
+	width: 35px;
+	height: 60px;
+	padding: 0px;
+}
+
+.global-filter a:focus {
+	outline: 0;
+}
+
+.global-filter a span {
+	display: block;
+}
+
+.global-filter .selector-icon {
+	display: none;
+}
+
+.global-filter.selector .selector-icon {
+	display: block;
+	position: absolute;
+	top: 29px;
+	left: 14px;
+	font-size: 15px;
+	color: #AAAAAA;
+}
+
+.global-filter .shown-value {
+	font-size: 15px;
+	font-weight: 300;
+	color: #D2D2D2;
+	line-height: 45px;
+	padding-top: 5px;
+	padding-right: 15px;
+}
+
+.global-filter.selector .shown-value {
+	margin-left: 20px;
+}
+
+.global-filter.picktime .shown-value {
+	display: none;
+}
+
+.global-filter span.icon {
+	width: 16px;
+	height: 16px;
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 27px;
+	background: url('/static/img/arrow-down.png') no-repeat scroll center center transparent;
+	background-size: 16px 16px;
+}
+
+.global-filter .dropdown-menu-nav.toggle .icon {
+	background: url('/static/img/arrow-up.png') no-repeat scroll center center transparent;
+	background-size: 16px 16px;
+}
+
+/* confirm status */
+.global-filter .dropdown-menu-nav.toggle, .global-filter.confirm {
+	background-color: #1d1f24;
+}
+
+.global-filter#time-range.confirm a {
+	display: none;
+}
+
+.global-filter#time-range.confirm .shown-value {
+	display: none;
+}
+
+.global-filter.confirm .dropdown-actions {
+	display: block;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 70px;
+	height: 60px;
+}
+
+.global-filter.confirm #datetime-picker {
+	display: block;
+	float: left;
+	margin-right: 70px;
+	height: 60px;
+}
+
+.global-filter.confirm span.icon {
+	display: none;
+}
+
+#top-menu {
+	float: right;
+}
+
+#top-menu > ul {
+	list-style: none outside none;
+}
+
+#top-menu > ul > li {
+	display: inline-block;
+	position: relative;
+}
+
+#top-menu .menu-link {
+	transition: all 200ms ease 0s;
+	display: block;
+	position: relative;
+	height: 60px;
+	background: none repeat scroll 0% 0% transparent;
+	opacity: 0.5;
+}
+
+#top-menu .menu-link:hover, #left-nav .menu-link.active {
+	opacity: 1;
+}
+
+#top-menu .menu-link:focus {
+	outline: 0;
+}
+
+#top-menu .menu-icon {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#top-menu .menu-icon.icon-config {
+	background: url('/static/img/nav-config-s.png') no-repeat scroll center center transparent;
+	background-size: 24px 24px;
+}
+
+#top-menu .menu-icon.icon-help {
+	background: url('/static/img/nav-help-s.png') no-repeat scroll center center transparent;
+	background-size: 24px 24px;
+}
+
+#top-menu .menu-icon.icon-user {
+	background: url('/static/img/nav-user-s.png') no-repeat scroll center center transparent;
+	background-size: 24px 24px;
+}
+
+#top-menu .menu-label {
+	display: block;
+	vertical-align: bottom;
+	line-height: 20px;
+	color: #FFF;
+}
+
+/* body */
+#body {
+	background-position: 0px 0px;
+	bottom: 0px;
+	color: #33373E;
+	left: 0px;
+	line-height: 18px;
+	margin-bottom: 0px;
+	margin-left: 93px;
+	margin-right: 0px;
+	margin-top: 0px;
+	overflow: auto;
+	position: absolute;
+	right: 0px;
+	top: 63px;
+	vertical-align: baseline;
+}
+
+/* drop down menu nav */
+.dropdown-menu-nav {
+	position: relative;
+}
+
+.dropdown-menu-nav .dropdown-panel {
+	display: none;
+	position: absolute;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+	background-color: #1d1f24;
+	right: 0;
+	top: 60px;
+	z-index: 999;
+	border-top: 3px solid #393e47;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	min-width: 180px;
+}
+
+.dropdown-menu-nav.full-width .dropdown-panel {
+	width: 100%;
+}
+
+.dropdown-menu-nav ul {
+	list-style: none outside none;
+}
+
+.dropdown-menu-nav ul > li {
+	border-bottom: 1px solid #555555;
+	padding: 0 10px;
+	opacity: 1;
+	color: #DADADA;
+	font-size: 13px;
+	line-height: 34px;
+	font-weight: 300;
+}
+
+.dropdown-menu-nav ul > li a {
+	color: #DADADA;
+	font-size: 13px;
+	line-height: 35px;
+	font-weight: normal;
+	display: block;
+	text-decoration: none;
+}
+
+.dropdown-menu-nav ul > li:hover, .dropdown-menu-nav ul > li.selected {
+	background-color: #2d3038;
+	cursor: pointer;
+}
+
+.dropdown-menu-nav ul > li.active {
+	background-color: #444954;
+	font-weight: 400;
+}
+
+/* Datetime Picker */
+.ui-datepicker {
+	width: 240px;
+	height: auto;
+	background-color: #333333;
+	border-radius: 0px;
+	padding: 10px 10px;
+	font-size: 12px;
+	border: none;
+	border-top: 3px solid #1d1f24;
+}
+
+.ui-datepicker a {
+	text-decoration: none;
+}
+
+.ui-datepicker-header {
+	background-color: transparent;
+	border: none;
+	color: #D2D2D2;
+}
+
+.ui-datepicker .ui-datepicker-title {
+	background-color: #444954;
+	line-height: 25px;
+	font-weight: normal;
+	border: none;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+	background-color: #444954;
+	border: none;
+	height: 26px;
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-next:hover {
+	background-color: #444954;
+	border: none;
+}
+
+.ui-datepicker .ui-datepicker-prev:hover {
+	left: 2px;
+	top: 2px;
+}
+
+.ui-datepicker .ui-datepicker-next:hover {
+	right: 2px;
+	top: 2px;
+}
+
+.ui-datepicker .ui-widget-header .ui-icon {
+	background-position: 0px;
+	background-size: 14px 14px;
+	opacity: .5;
+}
+
+.ui-datepicker .ui-widget-header .ui-icon:hover {
+	opacity: 1;
+}
+
+.ui-datepicker .ui-widget-header .ui-icon.ui-icon-circle-triangle-w {
+	background-image: url('/static/img/arrow-left.png');
+}
+
+.ui-datepicker .ui-widget-header .ui-icon.ui-icon-circle-triangle-e {
+	background-image: url('/static/img/arrow-right.png');
+}
+
+.ui-datepicker th {
+	color: #999999;
+	font-weight: normal;
+}
+
+.ui-datepicker td {
+	padding: 2px;
+}
+
+.ui-datepicker-calendar td a {
+	text-align: center;
+}
+
+.ui-widget-content .ui-state-default {
+	background-color: #444954;
+	line-height: 20px;
+	font-weight: 200;
+	border: none;
+	color: #999999;
+}
+
+.ui-widget-content .ui-state-highlight {
+	color: #DADADA;
+	font-weight: bold;
+}
+
+.ui-widget-content .ui-state-default:hover, .ui-widget-content .ui-state-active {
+	background-color: #DADADA;
+	color: #444954;
+}
+
+/* input box */
+.hasDatepicker[type="text"] {
+	background: transparent;
+	color: #DADADA;
+	width: 140px;
+	border: 0px;
+	font-size: 15px;
+	height: 60px;
+	padding: 30px 0px 15px 15px;
+	font-weight: 300;
+	outline: none !important;
+}
+
+/* Filter panel */
+.filter-panel .filter-type {
+	display: table;
+	width: 100%;
+	border-bottom: 3px solid #393e47;
+}
+
+.filter-panel .filter-type-mid {
+	display: table-row;
+}
+
+.filter-panel .btn-filter-type {
+	display: table-cell;
+	color: #D2D2D2;
+	/*background-color: #444954;*/
+	line-height: 32px;
+	width: 100px;
+	text-align: center;
+}
+
+.filter-panel .btn-filter-type:hover {
+	background-color: #2d3038;
+	cursor: pointer;
+}
+
+.filter-panel .btn-filter-type.active {
+	background-color: #444954;
+}
+
+.filter-panel .filter-select {
+	padding: 10px 15px;
+}
+
+.filter-panel .filter-select ul {
+	max-height: 350px;
+	overflow: scroll;
+	cursor: pointer;
+}
+
+.filter-panel .filter-select ul li {
+	border-bottom: 1px solid #1D1F24;
+}
+
+.filter-panel .filter-select ul li .match {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.filter-panel .bootstrap-tagsinput {
+	width: 100%;
+	border: 3px solid #393e47;
+	background-color: #1D1F24;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-left: 4px;
+}
+
+.filter-panel .bootstrap-tagsinput .clear-all {
+	position: absolute;
+	right: 3px;
+	top: 50%;
+	transform: translate(0, -50%);
+	font-weight: 300;
+	display: block;
+}
+
+.filter-panel .bootstrap-tagsinput .clear-all:hover {
+	cursor: pointer;
+	color: #969696;
+}
+
+.filter-panel .bootstrap-tagsinput input {
+	color: #DADADA;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.filter-panel .bootstrap-tagsinput .tag {
+	font-size: 11px;
+	padding: 6px 4px 4px 4px;
+	font-weight: 200;
+	border-radius: 2px;
+	background-color: #444954;
+	color: #DADADA;
+	margin-bottom: 4px;
+}
+
+.filter-panel .bootstrap-tagsinput .tag [data-role="remove"] {
+	margin-left: 3px;
+}
