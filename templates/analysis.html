@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Analytics{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}js/topology.js"></script>
+<script src="{{STATIC_URL}}js/analysis.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/analysis.css"/>
+{% endblock %}
+
+{% block body %}
+<div id="map-actions">
+	<div class="map-ctl btn-group">
+	  <button type="button" class="btn btn-default btn-sm refresh" title="Refresh map">
+	  	<span id="aaaa" class="glyphicon glyphicon-repeat"></span>
+	  </button>
+	  <button type="button" class="btn btn-default btn-sm pause" title="Pause Auto Refresh">
+		  <div class="refresh-progress"></div>	  	
+	  	<span class="glyphicon glyphicon-pause disabled"></span>		  	
+	  </button>	  	  
+	  <button type="button" class="btn btn-default btn-sm config" title="Config map">
+	  	<span class="glyphicon glyphicon-cog"></span>
+	  </button>	  
+	  <button type="button" class="btn btn-default btn-sm fullscreen" title="Fullscreen">
+	  	<span class="glyphicon glyphicon-fullscreen disabled"></span>		  	
+	  </button>
+	</div>			
+</div>
+<div id="topology"></div>
+<div id="rank" class="tint">
+	<script type="text/template" id="rank-template">
+		<div class="rank-title">
+			<span><%= rank_title %></span>
+		</div>
+		<div class="rank-chart <%= rank_type %>"></div>		
+	</script>									
+</div>
+<div id="node-details" class="tint">
+	<div class="size-handler dark">
+		<span>......            ......</span>		
+	</div>
+	<div id="node-hold">
+		<span>Select a endpoint to see details</span>
+	</div>
+	<div id="node-info">
+		<div id="node-basics">			
+			<div id="node-avatar">
+				<span class="node-frame"></span>
+				<span class="node-icon"></span>
+				<span class="node-type"></span>
+			</div>
+			<div id="node-attr">
+				<ul>
+					<li>
+						<span class="attr-name">IP:</span>
+						<span class="attr-value ip"></span>
+					</li>
+					<li>
+						<span class="attr-name">MAC:</span>
+						<span class="attr-value mac"></span>
+					</li>
+					<li>
+						<span class="attr-name">Name:</span>
+						<span class="attr-value name"></span>
+					</li>
+					<li>
+						<span class="attr-name">WatchScore:</span>
+						<span class="attr-value watch-score"></span>
+					</li>					
+				</ul>				
+			</div>				
+		</div>
+		<div id="node-events">
+			<ul>
+				<li class="reserve">No ongoing events.</li>
+				<script type="text/template" id="event-template">
+					<span class="event-severity <%= severity %>"></span>
+					<span class="event-info"><%= name %></span>
+					<span class="event-time"><%= update_time %></span>
+				</script>									
+			<ul>
+		</div>
+	</div>
+	<div id="flow-list">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th rowspan="2">Client</th>					
+					<th rowspan="2">Server</th>					
+					<th rowspan="2">Protocol</th>
+					<th colspan="2" class="merge">Temporal</th>
+					<th colspan="1" class="merge">Spatial</th>
+					<th colspan="2" class="merge">Behavioral</th>
+				</tr>
+				<tr>
+					<th>Throughput(req/rsp)</th>					
+					<th>RTT</th>
+					<th>Correlations</th>
+					<th>CPR</th>
+					<th>Watch Score</th>
+				</tr>
+			</thead>
+			<tbody>				
+				<script type="text/template" id="flow-detail-template">
+					<td colspan="100%">
+						<div class="flow-detail">							
+							<div class="loading">
+							<svg></svg>								
+							</div>								
+						</div>
+					</td>
+				</script>						
+				<tr class="reserve">
+    			<td colspan="100%">
+        		No flows belong to selected endpoint.
+    			</td>
+				</tr>								
+				<script type="text/template" id="flow-template">
+					<td><span><%= src_ip_address %></span></td>			
+					<td><span><%= dst_ip_address %></span></td>
+					<td><span><%= protocol %></span></td>
+					<td class="clickable" type="throughput">
+						<span type="req"><%= req %></span>
+						<span>/</span>
+						<span type="rsp"><%= rsp %></span>
+						<span>bps</span>
+						<span class="throughput-chart"></span>						
+					</td>					
+					<td class="clickable" type="rtt">						
+						<span type="rtt"><%= rtt %></span>
+						<span class="rtt-chart"></span>
+					</td>
+					<td class="clickable" type="correlations">
+						<span type="correlations"><%= correlations %></span>
+					</td>
+					<td class="clickable" type="cpr"><span type="cpr"><%= cpr %></span></td>
+					<td class="clickable" type="watch-score"><span type="watch-score"><%= watch_score %></span></td>					
+				</script>
+			</tbody>
+		</table>		
+	</div>
+</div>
+{% endblock %}

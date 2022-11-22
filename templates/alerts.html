@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Alerts{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}codemirror/codemirror.js"></script>
+<script src="{{STATIC_URL}}codemirror/javascript.js"></script>
+<script src="{{STATIC_URL}}js/alerts.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/config.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}codemirror/codemirror.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/alerts.css"/>
+{% endblock %}
+
+{% block body %}
+<div id="config-menu">
+	<h3>System Config</h3>
+	<ul class="list-group">
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			Team
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			Nodes
+		</li>
+		<li class="list-group-item">
+			Groups
+		</li>
+		<li class="list-group-item">
+			Applications
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item selected">
+			<a href="/alerts/"> Alerts </a>
+		</li>
+		<li class="list-group-item">
+			<a href="/plugins/"> Custom Metrics </a>
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			<a href="/policypacks/"> Policy Packs </a>
+		</li>
+		<li class="list-group-item empty"></li>
+	</ul>
+</div>
+<div id="config-fields">
+	<div class="config-actions">
+		<div class="config-title">
+			<H1><small>Editing Alert</small></H1>
+		</div>
+		<div class="config-action">
+			<button id="save-alert" type="button" class="btn btn-primary">
+				Save Alert
+			</button>
+			<button id="cancel-alert" type="button" class="btn btn-default">
+				Cancel
+			</button>
+		</div>
+	</div>
+	<ul id="myTab" class="nav nav-tabs" role="tablist">
+		<li class="active">
+			<a href="#Configuration" role="tab" data-toggle="tab">Configuration</a>
+		</li>
+		<li>
+			<a href="#Script" role="tab" data-toggle="tab">Script</a>
+		</li>
+	</ul>
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade in active" id="Configuration">						
+			<div class="alert-define panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> Live metric data </a></h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div id="live-metric-chart">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> Name the alert </a></h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="row">
+								<label>Say what's happening </label>
+								<div class="input-group">
+									<span class="input-group-addon">Name</span>
+									<input type="text" class="form-control" value="Cloud Apps usage Alert ">
+								</div><!-- /input-group -->
+							</div>
+						</div>
+					</div>
+				</div>														
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"> Define the alert </a></h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="row">
+								<label class="row-label">Whenever</label>
+								<div class="form-group col-lg-2">
+									<div class="dropdown" id="select-dashboard">
+										<button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown">
+											Avg <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+											<li role="presentation" class="active">
+												<a role="menuitem" tabindex="-1" href="#">Avg</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Max</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Min</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Sum</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<label class="row-label">of</label>
+								<div class="form-group col-lg-3">
+									<input type="text" class="form-control" id="metric-selector" placeholder="Select metrics" value="custom.cloudapp.usage">
+									<div class="auto-complete">
+										<ul>
+											<li></li>
+										</ul>
+									</div>
+								</div>
+								<label class="row-label">over</label>
+								<div class="form-group col-lg-3">
+									<div class="dropdown" id="select-dashboard">
+										<button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown">
+											All <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+											<li role="presentation" class="active">
+												<a role="menuitem" tabindex="-1" href="#">APP1</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">APP2</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Node1</a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#">Group1</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<label class="row-label">Triggered by</label>
+								<div class="form-group col-lg-5">
+									<div class="btn-group" data-toggle="buttons">
+										<label id="btn-timeseries" class="btn btn-default active">
+											<input name="options" id="option1" checked="" type="radio">
+											Threshold</label>
+										<label id="btn-distribution" class="btn btn-default">
+											<input name="options" id="option2" type="radio">
+											Baseline</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<label class="row-label">Metric value</label>
+								<div class="form-group col-lg-1">
+									<div class="dropdown" id="select-dashboard">
+										<button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown">
+											> <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+											<li role="presentation" class="active">
+												<a role="menuitem" tabindex="-1" href="#">></a>
+											</li>
+											<li role="presentation">
+												<a role="menuitem" tabindex="-1" href="#"><</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="form-group col-lg-1">
+									<input type="text" class="form-control" id="metric-selector" placeholder="" value="10">
+								</div>
+								<label class="row-label">And lasts for</label>
+								<div class="form-group col-lg-1">
+									<input type="text" class="form-control" id="metric-selector" placeholder="" value="5">
+								</div>
+								<div class="form-group col-lg-2">
+									<div class="dropdown" id="select-dashboard">
+										<button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdown">
+											Minutes <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+											<li role="presentation" class="">
+												<a role="menuitem" tabindex="-1" href="#">Seconds</a>
+											</li>
+											<li role="presentation" class="active">
+												<a role="menuitem" tabindex="-1" href="#">Minutes</a>
+											</li>
+											<li role="presentation" class="">
+												<a role="menuitem" tabindex="-1" href="#">Hours</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"> Set notifications </a></h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="row">
+								<label>Select which user groups the event will be created in</label>
+								<div class="input-group">
+									<span class="input-group-addon">Event</span>
+									<span class="input-group-addon">
+										<input type="checkbox">
+									</span>
+									<input type="text" class="form-control">
+								</div><!-- /input-group -->
+							</div>
+							<div class="row">
+								<label></label>
+							</div>
+							<div class="row">
+								<label>Select which users will received the alert Email</label>
+								<div class="input-group">
+									<span class="input-group-addon">Email</span>
+									<span class="input-group-addon">
+										<input type="checkbox">
+									</span>
+									<input type="text" class="form-control">
+								</div><!-- /input-group -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="Script">
+			<textarea id="javascript-editor" name="" rows="150"></textarea>
+		</div>
+	</div>
+</div>
+<div id="config-content">
+	<div class="config-actions">
+		<div class="config-title">
+			<H1><small>Alerts</small></H1>
+		</div>
+		<div class="config-action">
+			<button id="create-new-policy" type="button" class="btn btn-primary edit-alert">
+				Add New Alert
+			</button>
+		</div>
+	</div>
+	<div id="config-list">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Metric</th>
+					<th>Scope</th>
+					<th>Condition</th>
+					<th>Duration</th>
+					<th>Notify</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Cloud Apps usage Alert
+					<div class="table-action">
+						<button id="" class="btn btn-default btn-xs edit-alert">
+							Edit
+						</button>
+						<button id="" class="btn btn-danger btn-xs">
+							Delete
+						</button>
+					</div></td>
+					<td>custom.cloudapp.usage</td>
+					<td>*</td>
+					<td>Traffic Abnormal</td>
+					<td>10 Sec</td>
+					<td>Event</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>	
+</html>
+{% endblock %}

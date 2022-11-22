@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Dashboard{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}gridster/jquery.gridster.js"></script>
+<script src="{{STATIC_URL}}select2/select2.js"></script>
+<script src="{{STATIC_URL}}js/topology.js"></script>
+<script src="{{STATIC_URL}}js/dashboard.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}gridster/jquery.gridster.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/dashboard.css"/>
+{% endblock %}
+
+{% block body %}
+
+<div id="report-list" class="dark">
+	<div id="hidden-panel">
+		<span>Dashboards</span>
+	</div>
+	<div id="visual-panel">
+		<div class="head">
+			<span class="head-name">Dashboards</span>
+			<div class="head-actions">
+				<a herf="#" class="create-category">Create category</a>
+				<span class="hide-panel glyphicon glyphicon-remove"></span>
+			</div>
+		</div>
+		<script type="text/template" id="report-category-template">
+			<div class="category-head">
+				<span class="category-name"><%= name %></span>
+				<div class="inline-actions category-actions">
+					<div class="dropdown-normal category-dropdown">
+						<ul class="">
+							<li class="rename">
+								Rename
+							</li>
+							<li class="delete">
+								Delete
+							</li>
+							<li class="add-report">
+								Add Report
+							</li>							
+						</ul>
+					</div>
+					<span class="cagegory-caret caret"></span>
+				</div>
+				<div class="delete-category-actions">
+					<span>Confirm?</span>
+					<button type="button" class="confirm-delete-category btn btn-danger btn-xs">Delete</button>
+					<button type="button" class="cancel-delete-category btn btn-default btn-xs">Cancel</button>						
+				</div>									
+			</div>
+			<div class="category-reports">
+				<ul>
+				</ul>
+			</div>
+		</script>
+		<script type="text/template" id="report-template">			
+			<span class="report-name"><%= name %></span>
+			<span class="default-icon glyphicon glyphicon-flag"></span>			
+			<div class="inline-actions report-actions">
+				<div class="dropdown-normal report-dropdown">
+					<ul class="">
+						<li class="rename">
+							Rename
+						</li>
+						<li class="delete">
+							Delete
+						</li>
+						<li class="mark-default">
+							Mark as Default
+						</li>
+						<li class="unmark-default">
+							Unmark Default
+						</li>						
+					</ul>
+				</div>				
+				<span class="report-caret caret"></span>
+			</div>
+			<div class="delete-report-actions">
+				<span>Confirm?</span>
+				<button type="button" class="confirm-delete-report btn btn-danger btn-xs">Delete</button>
+				<button type="button" class="cancel-delete-report btn btn-default btn-xs">Cancel</button>						
+			</div>												
+		</script>
+	</div>
+</div>
+<div id="report-content">
+	<div id="report-actions">
+		<div class="report-selected-label">
+			<span> <-- Select a report to begin </span>
+		</div>
+		<div class="time-ctl btn-group">
+		  <button type="button" class="btn btn-default btn-xs backward" title="Backward">
+		  	<span class="glyphicon glyphicon-backward"></span>
+		  </button>
+		  <button type="button" class="btn btn-default btn-xs pause" title="Pause auto refresh">
+		  	<div class="refresh-progress"></div>
+		  	<span class="glyphicon glyphicon-pause"></span>
+		  </button>
+		  <button type="button" class="btn btn-default btn-xs forward" title="Forward">
+		  	<span class="glyphicon glyphicon-forward disabled"></span>		  	
+		  </button>
+		</div>		
+		<div class="view-buttons">
+			<button id="" class="btn btn-default btn-sm report-edit" type="button">
+				<span class="glyphicon glyphicon-cog"></span>
+				Edit Dashboard
+			</button>
+		</div>
+		<div class="edit-buttons">
+			<button id="" class="btn btn-primary btn-sm report-finish-editing" type="button">
+				<span class="glyphicon glyphicon-cog"></span>
+				Finish Editing
+			</button>
+		</div>
+	</div>
+	<div class="report-grid gridster">
+		<ul>
+			<div id="plot-config" class="tint">
+				<form id = "metric" role="form" class="">
+					<div class="form-group">
+						<label class="title" for="">Chart Type</label>
+						<div id="chart-type" class="btn-group btn-group-sm" data-toggle="buttons">
+							<label class="btn btn-default active chart-type" data-type="metric-graph" data-toggle="tooltip" title="Show metric data as graph">
+								<input type="radio" name="options" id="option1" checked value="linetrend">
+								Metric Graph <span class="glyphicon glyphicon-signal"></span></label>
+							<label class="btn btn-default chart-type" data-type="function-widget" data-toggle="tooltip" title="Show function view as widget">
+								<input type="radio" name="options" id="option2" value="areatrend">
+								Function Widget <span class="glyphicon glyphicon-th"></span></label>
+						</div>
+					</div>
+					<div id="metric-graph-panel">
+						<div class="form-group">
+							<label class="title" for="">Visualization</label>
+							<div id="vis-graph" class="btn-group btn-group-sm" data-toggle="buttons">
+								<label class="btn btn-default active visualization" data-type="linetrend" data-toggle="tooltip" title="Show timeseries metric data in line chart">
+									<input type="radio" name="options" id="option1" checked value="linetrend">
+									Line <span class="glyphicon glyphicon-random"></span></label>
+								<label class="btn btn-default visualization" data-type="areatrend" data-toggle="tooltip" title="Show time series metric data in area chart">
+									<input type="radio" name="options" id="option2" value="areatrend">
+									Area <span class="glyphicon glyphicon-flag"></span></label>
+								<label class="btn btn-default visualization" data-type="bardistribution" data-toggle="tooltip" title="Show distributed metric data in bar chart">
+									<input type="radio" name="options" id="option3" value="bardistribution">
+									Bar <span class="glyphicon glyphicon-stats"></span></label>
+								<label class="btn btn-default visualization" data-type="piedistribution" data-toggle="tooltip" title="Show distributed metric data in pie chart">
+									<input type="radio" name="options" id="option3" value="piedistribution">
+									Pie <span class="glyphicon glyphicon-adjust"></span></label>
+								<label class="btn btn-default visualization" data-type="text" data-toggle="tooltip" title="Show distributed metric data in pie chart">
+									<input type="radio" name="options" id="option3" value="text">
+									Text <span class="glyphicon glyphicon-text-width"></span></label>																																																																	
+								<label class="btn btn-default visualization" data-type="rank" data-toggle="tooltip" title="Show distributed metric data in pie chart">
+									<input type="radio" name="options" id="option3" value="rank">
+									Rank <span class="glyphicon glyphicon-sort-by-attributes-alt"></span></label>
+							</div>
+						</div>					
+						<div class="form-group inline-divs">
+							<div class="div-left">
+								<label class="title" for="metric-selector">Metrics</label>
+								<div>
+									<input type="hidden" id="metric-selector" multiple="" style="width:100%;">
+									</input>
+								</div>
+							</div>
+							<div class="div-right">
+								<label class="title" for="metric-unit-selector" style="margin-bottom:5px;">Unit</label>
+								<div class="select2-el">
+									<input id="metric-unit-selector" type="hidden" style="width:100%;">
+									</input>
+								</div>									
+							</div>						
+						</div>
+						<div class="form-group">
+							<label class="title" for="exampleInputFilter1">Broken Down By</label>
+							<div class="inline-divs">
+								<div class="select2-el">
+									<input id="break-down-type" type="hidden" style="width:140px;">
+									</input>
+								</div>
+								<div class="inline-divs" id="break-down-dimension-container">
+									<div>
+										<span>=</span>
+									</div>							
+									<div class="select2-el">
+										<input type="hidden" id="break-down-dimension" style="width:140px;">
+										</input>
+									</div>									
+								</div>										
+							</div>
+						</div>
+						<div class="form-group" id="dimension-filter-container">
+							<label class="title" for="exampleInputFilter1">Dimension Filter</label>
+							<div class="inline-divs">
+								<div class="select2-el">
+									<input type="hidden" id="dimension-filter" style="width:140px;">
+									</input>
+								</div>
+								<div class="inline-divs" id="dimension-filter-key-container">
+									<div>
+										<span>=</span>
+									</div>
+									<div class="editable-area">
+										<span id="dimension-filter-key"></span>
+									</div>
+								</div>							
+							</div>																									
+						</div>	
+						<div class="form-group">
+							<label class="title" for="exampleInputEmail1">Set Graph Title</label>
+							<input type="text" class="form-control input-sm" id="graph-title" placeholder="Enter graph title">
+						</div>																																
+					</div>
+					<div id="function-widget-panel">
+						<div class="form-group">
+							<label class="title" for="">Widget Type</label>
+							<div id="vis-widget" class="btn-group btn-group-sm" data-toggle="buttons">
+								<label class="btn btn-default active widget-type" data-type="eventlist">
+									<input type="radio" name="options" id="option1" checked value="eventlist">
+									Event List <span class="glyphicon glyphicon-list"></span></label>
+								<label class="btn btn-default widget-type" data-type="networkmap">
+									<input type="radio" name="options" id="option2" value="networkmap">
+									Network Map <span class="glyphicon glyphicon-random"></span></label>
+								<label class="btn btn-default widget-type" data-type="geomap">
+									<input type="radio" name="options" id="option3" value="geomap">
+									GEO Map <span class="glyphicon glyphicon-globe"></span></label>
+							</div>						
+						</div>		
+						<div class="form-inline">
+							<div class="form-group">
+								<label class="title" for="">Severity</label>
+								<div class="btn-group btn-group-sm filter-options" data-toggle="buttons">
+									<label class="btn btn-default active event-severity" data-type="all">
+										<input type="checkbox" name="options" id="option1" checked value="all">
+										All </label>
+									<label class="btn btn-default event-severity" data-type="2">
+										<input type="checkbox" name="options" id="option2" value="2">
+										Error </label>
+									<label class="btn btn-default event-severity" data-type="1">
+										<input type="checkbox" name="options" id="option3" value="1">
+										Warn </label>
+									<label class="btn btn-default event-severity" data-type="0">
+										<input type="checkbox" name="options" id="option3" value="0">
+										Info </label>									
+								</div>						
+							</div>
+							<div class="form-group">
+								<label class="title" for="">Priority</label>
+								<div class="btn-group btn-group-sm filter-options" data-toggle="buttons">
+									<label class="btn btn-default active event-priority" data-type="all">
+										<input type="checkbox" name="options" id="option1" checked value="all">
+										All </label>
+									<label class="btn btn-default event-priority" data-type="0">
+										<input type="checkbox" name="options" id="option2" value="0">
+										Low </label>
+									<label class="btn btn-default event-priority" data-type="1">
+										<input type="checkbox" name="options" id="option3" value="1">
+										Normal </label>
+									<label class="btn btn-default event-priority" data-type="2">
+										<input type="checkbox" name="options" id="option3" value="2">
+										High </label>									
+								</div>						
+							</div>					
+							<div class="form-group">
+								<label class="title" for="">Status</label>
+								<div class="btn-group btn-group-sm filter-options" data-toggle="buttons">
+									<label class="btn btn-default active event-status" data-type="all">
+										<input type="checkbox" name="options" id="option1" checked value="all">
+										All </label>
+									<label class="btn btn-default event-status" data-type="0">
+										<input type="checkbox" name="options" id="option2" value="0">
+										Open </label>
+									<label class="btn btn-default event-status" data-type="1">
+										<input type="checkbox" name="options" id="option3" value="1">
+										Acknowledged </label>
+									<label class="btn btn-default event-status" data-type="2">
+										<input type="checkbox" name="options" id="option3" value="2">
+										Closed </label>									
+								</div>						
+							</div>
+							<div class="form-group">
+								<label class="title" for="exampleInputFilter1">Shown Size</label>
+								<div class="select2-el">
+									<input id="event-size" type="hidden" style="width:140px;">
+									</input>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="title" for="exampleInputEmail1">Set Widget Title</label>
+							<input type="text" class="form-control input-sm" id="widget-title" placeholder="Enter widget title">
+						</div>						
+					</div>
+					<div class="form-group plot-actions">
+						<div class="float-left">
+							<!-- <button id="" type="button" class="btn btn-default btn-sm btn-action config-show-script">
+								Show Script
+							</button> -->						
+						</div>
+						<div class="float-right">
+							<button id="" type="button" class="btn btn-default btn-sm btn-action config-cancel">
+								Cancel
+							</button>
+							<button id="" type="button" class="btn btn-primary btn-sm btn-action config-save">
+								Save Chart
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>			
+			<script type="text/template" id="report-plot-template">
+				<div class="widget-header">
+					<span class="plot-loading"></span>					
+					<span class="plot-title"><%= title %></span>					
+					<div class="widget-actions">
+						<a class="config-widget"><span class="glyphicon glyphicon-cog"></span></a>
+						<a class="delete-widget"><span class="glyphicon glyphicon-remove"></span></a>
+					</div>
+					<div class="delete-actions">
+						<button type="button" class="confirm-delete btn btn-danger btn-xs">Delete</button>
+						<button type="button" class="cancel-delete btn btn-default btn-xs">Cancel</button>						
+					</div>					
+				</div>
+				<div class="widget-content"></div>
+			</script>
+			<script type="text/template" id="event-template">
+				<span class="event-severity <%= severity %>"></span>
+				<span class="event-info"><%= name %></span>
+				<span class="event-time"><%= update_time %></span>
+			</script>			
+			<script type="text/template" id="text-template">
+				<span class="text-value <%= severity %>"><%= text_unit %></span>
+				<span class="text-unit"><%= text_unit %></span>
+			</script>																		
+			<script type="text/template" id="report-new-plot-template">
+				<li class='widget-new-plot'>
+					<span>Add a Plot</span>
+				</li>				
+			</script>		
+			<div class="modal-backdrop fade in"></div>
+		</ul>
+	</div>
+</div>
+{% endblock %}

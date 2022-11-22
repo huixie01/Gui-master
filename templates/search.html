@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Search{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}js/search.js"></script>
+<script src="{{STATIC_URL}}js/jquery.twbsPagination.js"></script>
+<script src="{{STATIC_URL}}js/jquery.infinitescroll.js"></script>
+<script src="{{STATIC_URL}}bootstrap-table/bootstrap-table.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap-table/bootstrap-table.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/search.css"/>
+{% endblock %}
+
+{% block body %}
+<div id="search-bar" class="tint">
+	<div id="search-box" class="input-group">
+	  <span id="search-help" class="input-group-addon glyphicon glyphicon-question-sign"></span>	  
+	  <input id="search-keyword" type="text" class="form-control input-sm" placeholder="Search sessions">
+	  <span id="search-exec" class="input-group-addon"><span class="glyphicon glyphicon-search"></span>Search</span>
+	</div>	
+</div>
+<div id="protocol-tabs">
+	<ul class="nav nav-tabs" role="tablist">
+		<script type="text/template" id="protocol-tab-template">
+			<li protocol="<%=protocol%>" class="<%=active%>">
+				<a href="#" role="tab" data-toggle="tab"><%=protocol%>(<%=count%>)</a>
+			</li>						
+		</script>
+	</ul>	
+	<svg></svg>
+</div>
+<div id="session-body">
+	<div id="session-rank">
+		<div class="session-header">
+			<span>Session Rank</span>
+		</div>
+		<script type="text/template" id="rank-template">
+			<div class="rank-title">
+				<span><%= rank_title %></span>
+			</div>
+			<div class="rank-chart"></div>		
+		</script>									
+	</div>
+	<div id="session-content">
+		<div id="session-list">
+			<div class="session-header">
+				<span>Session List</span>
+			</div>			
+			<table id="session-table" data-toggle="table">
+			</table>		
+		</div>
+		<div id="session-detail">
+			<div class="session-header">
+				<span>Session Detail</span>
+			</div>			
+			<ul>
+				<script type="text/template" id="session-detail-template">
+					<li>
+						<span class="name"><%=name%></span>
+						<span class="value"><%=value%></span>
+					</li>						
+				</script>
+			</ul>	
+		</div>			
+	</div>
+</div>
+{% endblock %}

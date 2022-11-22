@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Plugins{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}codemirror/codemirror.js"></script>
+<script src="{{STATIC_URL}}codemirror/javascript.js"></script>
+<script src="{{STATIC_URL}}js/policypacks.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/config.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}codemirror/codemirror.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/policypacks.css"/>
+{% endblock %}
+
+{% block body %}
+<div id="config-menu">
+	<h3>System Config</h3>
+	<ul class="list-group">
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			Team
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			Nodes
+		</li>
+		<li class="list-group-item">
+			Groups
+		</li>
+		<li class="list-group-item">
+			Applications
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			<a href="/alerts/"> Alerts </a>
+		</li>
+		<li class="list-group-item">
+			<a href="/plugins/"> Custom Metrics </a>
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item selected">
+			<a href="/policypacks/"> Policy Packs </a>
+		</li>
+		<li class="list-group-item empty"></li>
+	</ul>
+</div>
+<div id="config-start">
+	<div id="config-start-title">
+		<H1><small>Creating Policy Pack</small></H1>
+	</div>
+	<div id="load-action">
+		<span>Paste pack script below, or </span>
+		<span class="btn btn-default btn-file"> Load from file
+			<input type="file">
+		</span>
+	</div>
+
+	<div id="load-script" class="editor">
+		<textarea id="load-script-editor" name="" rows="10"></textarea>
+	</div>
+	<div id="load-next">
+		<button id="load-script-next" type="button" class="btn btn-primary">
+			Next
+		</button>
+		<button id="load-script-cancel" type="button" class="btn btn-default">
+			Cancel
+		</button>
+	</div>
+</div>
+<div id="config-fields">
+	<div class="config-actions">
+		<div class="config-title">
+			<H1><small>Policy Pack Contents</small></H1>
+		</div>
+	</div>
+	<form class="form-horizontal" role="form">
+		<!-- Text input-->
+		<div class="form-group">
+			<label class="col-md-1 control-label" for="">Name</label>
+			<div class="col-md-6">
+				<input id="" name="" type="text" value="CloudApp Policy Pack" placeholder="Policy name" class="form-control input-md">
+
+			</div>
+		</div>
+		<!-- Textarea -->
+		<div class="form-group">
+			<label class="col-md-1 control-label" for="">Description</label>
+			<div class="col-md-6">
+				<textarea class="form-control" id="" name="">Monitor cloud apps running on your network</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-1 col-md-6">
+				<ul id="myTab" class="nav nav-pills" role="tablist">
+					<li class="active">
+						<a href="#Plugins" role="tab" data-toggle="tab">Custom Metrics <span class="badge">1</span></a>
+					</li>
+					<li>
+						<a href="#Alerts" role="tab" data-toggle="tab">Alerts <span class="badge">1</span></a>
+					</li>
+					<li>
+						<a href="#Reports" role="tab" data-toggle="tab">Reports <span class="badge">1</span></a>
+					</li>
+				</ul>
+
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in active" id="Plugins">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Custom Metric Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Cloud Application Monitoring </td>
+									<td>Monitor Cloud Apps running on your network</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade" id="Alerts">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Alert Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Cloud Apps usage Alert </td>
+									<td>Triggers when Cloud Apps are using abnormally</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade" id="Reports">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Report Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Cloud App Analysis Report </td>
+									<td>Report that shows key metric for Cloud Apps</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-1 col-md-6">
+				<button id="save-policy" type="button" data-loading-text="Importing..." class="btn btn-primary">
+					Import Policy
+				</button>
+				<button id="cancel-policy" type="button" class="btn btn-default">
+					Cancel
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div id="config-content">
+	<div class="config-actions">
+		<div class="config-title">
+			<H1><small>Policy Packs</small></H1>
+		</div>
+		<div class="config-action">
+			<button id="create-new-policy" type="button" class="btn btn-primary">
+				Add New Pack
+			</button>
+		</div>
+	</div>
+	<div id="config-list">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Creator</th>
+					<th>Description</th>
+					<th>Modified Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Initialized Policy Pack
+					<div class="table-action">
+						<button id="" class="btn btn-default btn-xs edit-policy">
+							Edit
+						</button>
+						<button id="" class="btn btn-danger btn-xs">
+							Delete
+						</button>
+					</div></td>
+					<td>Josh Zhang</td>
+					<td>Default Policies</td>
+					<td>Wed Jun 25 07:07</td>
+				</tr>
+				<tr>
+					<td>DNS tunnelling Policy Pack
+					<div class="table-action">
+						<button id="" class="btn btn-default btn-xs edit-policy">
+							Edit
+						</button>
+						<button id="" class="btn btn-danger btn-xs">
+							Delete
+						</button>
+					</td>
+					<td>Admin</td>
+					<td>Monitor DNS tunnelling risk</td>
+					<td>Wed Jun 25 07:12</td>
+				</tr>
+				<tr>
+					<td>CloudApp Policy Pack
+					<div class="table-action">
+						<button id="" class="btn btn-default btn-xs edit-policy">
+							Edit
+						</button>
+						<button id="" class="btn btn-danger btn-xs">
+							Delete
+						</button>
+					</td>
+					<td>Admin</td>
+					<td>Monitor cloud apps running on your network</td>
+					<td>Wed Jun 25 07:10</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

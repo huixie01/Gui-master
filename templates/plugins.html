@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Plugins{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}codemirror/codemirror.js"></script>
+<script src="{{STATIC_URL}}codemirror/javascript.js"></script>
+<script src="{{STATIC_URL}}js/plugins.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/config.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}codemirror/codemirror.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/plugins.css"/>
+{% endblock %}
+
+{% block body %}
+<div id="config-menu">
+	<h3>System Config</h3>
+	<ul class="list-group">
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			Team
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			Nodes
+		</li>
+		<li class="list-group-item">
+			Groups
+		</li>
+		<li class="list-group-item">
+			Applications
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			<a href="/alerts/"> Alerts </a>
+		</li>
+		<li class="list-group-item selected">
+			<a href="/plugins/"> Custom Metrics </a>
+		</li>
+		<li class="list-group-item empty"></li>
+		<li class="list-group-item">
+			<a href="/policypacks/"> Policy Packs </a>
+		</li>
+		<li class="list-group-item empty"></li>
+	</ul>
+</div>
+<div id="config-fields">
+	<div class="config-actions">
+		<div class="config-title">
+			<H1><small>Editing Custom Metric</small></H1>
+		</div>
+		<div class="config-action">
+			<button id="save-policy" type="button" class="btn btn-primary">
+				Save Custom Metric
+			</button>
+			<button id="cancel-policy" type="button" class="btn btn-default">
+				Cancel
+			</button>
+		</div>
+	</div>
+	<ul id="myTab" class="nav nav-tabs" role="tablist">
+		<li class="active">
+			<a href="#Configuration" role="tab" data-toggle="tab">Configuration</a>
+		</li>
+		<li>
+			<a href="#Editor" role="tab" data-toggle="tab">Editor</a>
+		</li>
+		<li>
+			<a href="#Debug" role="tab" data-toggle="tab">Debug</a>
+		</li>
+	</ul>
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade in active" id="Configuration">
+			<form class="form-horizontal">
+				<fieldset>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-1 control-label" for="">Name</label>
+						<div class="col-md-4">
+							<input id="" name="" type="text" value="CloudApp Policy Pack" placeholder="Policy name" class="form-control input-md">
+
+						</div>
+					</div>
+
+					<!-- Multiple Checkboxes -->
+					<div class="form-group">
+						<label class="col-md-1 control-label" for="checkboxes">Status</label>
+						<div class="col-md-4">
+							<div class="checkbox">
+								<label for="checkboxes-0">
+									<input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+									Disable Policy </label>
+							</div>
+						</div>
+					</div>
+
+					<!-- Multiple Checkboxes -->
+					<div class="form-group">
+						<label class="col-md-1 control-label" for="checkboxes">Debugging</label>
+						<div class="col-md-4">
+							<div class="checkbox">
+								<label for="checkboxes-0">
+									<input type="checkbox" name="checkboxes" id="checkboxes-0" value="0">
+									Enable Debug </label>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-1 control-label" for="textinput">Triggers</label>
+						<div class="col-md-6">
+							<input id="textinput" value="HTTP_RSP" name="textinput" type="text" placeholder="Select triggers" class="form-control input-md">
+
+						</div>
+					</div>
+
+					<!-- Textarea -->
+					<div class="form-group">
+						<label class="col-md-1 control-label" for="">Description</label>
+						<div class="col-md-6">
+							<textarea class="form-control" id="" name="">Monitor cloud apps running on your network</textarea>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="tab-pane fade editor" id="Editor">
+			<textarea id="javascript-editor" name="" rows="150"></textarea>
+		</div>					
+		<div class="tab-pane fade" id="Debug"></div>
+
+	</div>
+</div>
+<div id="config-content">
+	<div class="config-actions">
+		<div class="config-title">
+			<H1><small>Custom Metrics</small></H1>
+		</div>
+		<div class="config-action">
+			<button id="create-new-policy" type="button" class="btn btn-primary">
+				Add New Custom Metric
+			</button>
+		</div>
+	</div>
+	<div id="config-list">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Creator</th>
+					<th>Triggers</th>
+					<th>Debug</th>
+					<th>Description</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Test HTTP Metric
+					<div class="table-action">
+						<button id="" class="btn btn-default btn-xs edit-policy">
+							Edit
+						</button>
+						<button id="" class="btn btn-danger btn-xs">
+							Delete
+						</button>
+					</div></td>
+					<td>Josh Zhang</td>
+					<td>HTTP_RSP</td>
+					<td>Enabled</td>
+					<td>Default Policies</td>
+					<td>Enabled</td>
+				</tr>
+				<tr>
+					<td>Cloud Application Monitoring 
+					<div class="table-action">
+						<button id="" class="btn btn-default btn-xs edit-policy">
+							Edit
+						</button>
+						<button id="" class="btn btn-danger btn-xs">
+							Delete
+						</button>
+					</td>
+					<td>Admin</td>
+					<td>HTTP_RSP</td>
+					<td>Disabled</td>
+					<td>Monitor cloud apps running on your network</td>
+					<td>Enabled</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

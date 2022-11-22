@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block title %}Sodero - Events{% endblock %}
+
+{% block js %}
+<script src="{{STATIC_URL}}js/d3.v3.js"></script>
+<script src="{{STATIC_URL}}js/nv.d3.js"></script>
+<script src="{{STATIC_URL}}js/events.js"></script>
+<script src="{{STATIC_URL}}js/jquery.twbsPagination.js"></script>
+<script src="{{STATIC_URL}}js/jquery.infinitescroll.js"></script>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/nv.d3.css"/>
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/events.css"/>
+{% endblock %}
+
+{% block body %}
+
+<div id="filter-list" class="dark">
+	<div id="visual-panel">
+		<div class="head">
+			<span class="head-name">EVENT FILTERS</span>
+		</div>
+		<div class="event-filter"  filter-type="severity">
+			<div class="filter-head">
+				<span class="filter-name">Severity</span>
+			</div>
+			<div class="filter-options">
+				<ul>
+					<li class="active" filter-value="all">
+						All
+					</li>
+					<li class="" filter-value="2">
+						<span class="indicator Error"></span>
+						Error
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+					<li class="" filter-value="1">
+						<span class="indicator Warn"></span>
+						Warn
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+					<li class="" filter-value="0">
+						<span class="indicator Info"></span>
+						Info
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="event-filter" filter-type="priority">
+			<div class="filter-head">
+				<span class="filter-name">Priority</span>
+			</div>
+			<div class="filter-options">
+				<ul>
+					<li class="active" filter-value="all">
+						All
+					</li>
+					<li class="" filter-value="0">
+						Low
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+					<li class="" filter-value="1">
+						Normal
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+					<li class="" filter-value="2">
+						High
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>										
+				</ul>
+			</div>
+		</div>		
+		<div class="event-filter" filter-type="status">
+			<div class="filter-head">
+				<span class="filter-name">Status</span>
+			</div>
+			<div class="filter-options">
+				<ul>
+					<li class="" filter-value="all">
+						All
+					</li>
+					<li class="active" filter-value="0">
+						Open
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+					<li class="active" filter-value="1">
+						Acknowledged
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+					<li class="" filter-value="2">
+						Closed
+						<span class="glyphicon glyphicon-remove"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="event-content">
+	<div id="event-actions" class="tint">
+		<div class="search-events">
+			<input id="input-search-events" type="text" class="form-control input-sm" placeholder="Search Event Name">
+			<span class="glyphicon glyphicon-search"></span>
+		</div><!-- /.col-lg-6 -->
+		<div class="refresh-ctl btn-group">
+		  <button type="button" class="btn btn-default btn-xs pause" title="Pause auto refresh">
+		  	<div class="refresh-progress"></div>
+		  	<span class="glyphicon glyphicon-pause"></span>
+		  </button>
+		  <button type="button" class="btn btn-default btn-xs refresh" title="Refresh">
+		  	<span class="glyphicon glyphicon-refresh"></span>		  	
+		  </button>
+		</div>		
+		<div class="dropdown" id="page-row-count">
+			<label>Page Size</label>
+			<button class="btn btn-default btn-sm dropdown-toggle" type="button" id="" data-toggle="dropdown">
+				<span class="dropdown-name">20</span> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation" class="active" page-rows="20">
+					<a role="menuitem" tabindex="-1" href="#">20</a>
+				</li>				
+				<li role="presentation" page-rows="50">
+					<a role="menuitem" tabindex="-1" href="#">50</a>
+				</li>
+				<li role="presentation" page-rows="100">
+					<a role="menuitem" tabindex="-1" href="#">100</a>
+				</li>
+			</ul>
+		</div>
+ 		<!-- <div class="always-show-open">
+    	<label>
+      	<input type="checkbox" checked> Always show Open Events
+    	</label>
+  	</div>		 -->
+		<div class="showing-number">
+			<script type="text/template" id="showing-number-template">
+				Showing <span><%= fromNum %></span> to <span><%= toNum %></span> of <span><%= count %></span> events						
+			</script>
+		</div>																								  		
+  	<div class="edit-buttons dropdown">
+			<button id="" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" type="button">
+				<span class="name">Edit Selected Events</span>
+				<span class="cagegory-caret caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li role="presentation">
+					<a id="acknowledge-all" role="menuitem" tabindex="-1" href="#">Acknowedge</a>
+				</li>
+				<li role="presentation" class="disable">
+					<a id="close-all" role="menuitem" tabindex="-1" href="#">Close</a>
+				</li>				
+			</ul>
+		</div>			
+	</div>
+	<div id="event-list">
+		<div id="loading-backdrop"></div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="severity">
+					<input type="checkbox" value="1"/>
+					</th>
+					<th class="sortable" sort-field="status">Status</th>					
+					<th class="sortable" sort-field="name">Name</th>					
+					<th class="sortable descending" sort-field="update_time">Last Seen</th>
+					<th class="sortable" sort-field="create_time">Triggered</th>
+					<th class="sortable" sort-field="priority">Priority</th>
+					<th class="sortable" sort-field="count">Count</th>
+					<th sort-field="">Scope</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="reserve">
+    			<td colspan="100%">
+        		No events match the selected filters.
+    			</td>
+				</tr>
+				<script type="text/template" id="event-template">
+					<td class="severity"><span class="indicator <%= severity %>"></span>
+					<input type="checkbox" class="select-event" data-id="" value="1"/>
+					<button style="display: none;" class="close-event"/>
+					<button style="display: none;" class="acknowledge-event"/>
+					</td>
+					<td><%= status %></td>			
+					<td><%= name %></td>
+					<td><%= update_time %></td>
+					<td><%= create_time %></td>
+					<td><%= priority %></td>
+					<td><%= count %></td>
+					<td><%= scope %></td>
+				</script>
+				<script type="text/template" id="event-detail-template">
+					<td colspan="8" class="detail">
+						<span class="indicator <%= severity %>"></span>						
+						<div class="event-detail">
+							<div class="event-detail-info">								
+								<ul>
+									<li class="detail-time">
+										<div class="detail-title">
+											TRIGGERED
+										</div>
+										<div class="detail-content">
+											<%= create_time %>
+										</div>
+									</li>									
+									<li class="detail-scope">
+										<div class="detail-title">
+											LAST SEEN
+										</div>
+										<div class="detail-content">
+											<%= update_time %>
+										</div>
+									</li>
+									<li class="detail-metric">
+										<div class="detail-title">
+											REASON
+										</div>
+										<div class="detail-content">
+											<%= metric_id %> = <span id="metric_value" class="tag">N/A</span> <span id="operator" class="">N/A</span> 
+											<span id="operand" class="tag">N/A</span> <span id="trigger_type">N/A</span>
+										</div>
+									</li>
+									<li class="detail-action">
+										<button type="button" id="acknowledge-one" class="btn btn-primary btn-sm">
+											Acknowledge
+										</button>										
+										<button type="button" id="close-one" class="btn btn-primary btn-sm">
+											Close Event
+										</button>
+									</li>
+								</ul>
+							</div>
+							<div class="event-detail-trend">
+								<div class="loading"></div>								
+								<svg></svg>
+							</div>
+						</div>
+					</td>
+				</script>				
+			</tbody>
+		</table>
+	</div>
+	<div id="event-footer">
+		<div id="event-pagination-container">
+			<ul id="event-pagination" class="pagination"></ul>
+		</div>		
+	</div>
+</div>
+{% endblock %}

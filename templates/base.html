@@ -1,0 +1,197 @@
+from django.http import HttpResponse
+from django.template import loader
+
+def index(request):
+  template = loader.get_template('dashboard.html')
+  return HttpResponse(template.render())
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- site logo -->
+		<link rel="shortcut icon" href="{{STATIC_URL}}img/site_logo.png">
+		<!-- common css -->
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/jquery-ui.css"/>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/jquery-ui-timepicker-addon.css"/>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap-editable/css/bootstrap-editable.css"/>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}bootstrap-tagsinput/bootstrap-tagsinput.css"/>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/base.css"/>
+		<!-- common js -->
+		<script src="{{STATIC_URL}}js/jquery-1.9.1.js"></script>
+		<script src="{{STATIC_URL}}js/jquery-ui.js"></script>
+		<script src="{{STATIC_URL}}js/jquery-ui-timepicker-addon.js"></script>
+		<script src="{{STATIC_URL}}bootstrap/js/bootstrap.js"></script>
+		<script src="{{STATIC_URL}}bootstrap-editable/js/bootstrap-editable.js"></script>
+		<script src="{{STATIC_URL}}bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+		<script src="{{STATIC_URL}}js/underscore.js"></script>
+		<script src="{{STATIC_URL}}js/backbone.js"></script>
+		<script src="{{STATIC_URL}}js/base.js"></script>
+		<script src="{{STATIC_URL}}js/utils.js"></script>
+		<!-- custom js, css -->
+		{% block css %}{% endblock %}
+		{% block js %}{% endblock %}
+		<!-- site title -->
+		<title>{% block title %}Sodero{% endblock %}</title>
+	</head>
+	<body>		
+		<div id="nav">
+			{% block nav %}
+			<div id="alert-message" class="alert" role="alert"></div>
+			<div id="left-nav">
+				<a href="/events/" id="logo"></a>
+				<nav id="nav-utility"></nav>
+				<div id="left-menu">
+					<ul class="nav">
+						<li>
+							<a href="/dashboard/" class="menu-link" id="nav-menu-dashboard"> <span class="menu-icon icon-dashboard"></span> <span class="menu-label">Dashboard</span> </a>
+						</li>
+						<li>
+							<a href="/analysis/" class="menu-link" id="nav-menu-analysis"> <span class="menu-icon icon-flowmap"></span> <span class="menu-label">Analysis</span> </a>
+						</li>		
+						<li>
+							<a href="/search/" class="menu-link" id="nav-menu-search"> <span class="menu-icon icon-search"></span> <span class="menu-label">Search</span> </a>
+						</li>																
+						<li>
+							<a href="/events/" class="menu-link" id="nav-menu-events"> <span class="menu-icon icon-events"></span> <span class="menu-label">Events</span> </a>
+						</li>
+						<!-- <li>
+							<a href="/reports/" class="menu-link" id="nav-menu-reports"> <span class="menu-icon icon-reports"></span> <span class="menu-label">Reports</span> </a>
+						</li> -->						
+					</ul>
+				</div>
+			</div>
+			<div id="top-nav">
+				<div id="global-filters">
+					<div id="object-filter" class="global-filter">
+						<span class="label">SCOPE</span>
+						<div class="dropdown-menu-nav full-width">
+							<a href="#"> 
+								<span class="selector-icon glyphicon glyphicon-move"></span>
+								<span class="shown-value">ALL</span> 
+								<span class="icon"></span>
+								</a>
+							<div class="filter-panel dropdown-panel">
+								<div class="filter-type">
+									<div class="filter-type-mid">
+										<div filter-type="nodes" class="active btn-filter-type">
+											Nodes
+										</div>
+										<div filter-type="groups" class="btn-filter-type">
+											Groups
+										</div>
+										<div filter-type="apps" class="btn-filter-type">
+											Apps
+										</div>
+									</div>
+								</div>
+								<div class="filter-select">
+									<input type="text" class="input-filter-select">
+									<ul>
+										<script type="text/template" id="filter-item-template">
+											<div class="div-filter-item" item-id="<%= id %>" dbid="<%= dbid %>" item-type="<%= type %>" item-name="<%= name %>">
+											<%= prefix %><span class="match"><%= match %></span><%= suffix %>
+											</div>
+										</script>
+									</ul>
+								</div>
+							</div>
+							<div class="dropdown-actions">
+								<button class="cancel" title="Cancel">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								<button class="confirm" title="Confirm">
+									<span class="glyphicon glyphicon-ok"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div id="time-range" class="global-filter">
+						<span class="label">TIME RANGE</span>
+						<div class="dropdown-menu-nav full-width">
+							<a href="#"> <span class="shown-value">Last 30 Minutes</span> <span class="icon"></span></a>
+							<ul class="dropdown-panel">
+								<li time-type="live" time-length="30" class="dropdown-menu-item active">
+									Last 30 Minutes
+								</li>
+								<li time-type="live" time-length="480" class="dropdown-menu-item">
+									Last 8 Hours
+								</li>
+								<li time-type="live" time-length="1440" class="dropdown-menu-item">
+									Last 1 Day
+								</li>
+								<li time-type="live" time-length="10080" class="dropdown-menu-item">
+									Last 1 Week
+								</li>
+								<li time-type="custom" class="dropdown-menu-item">
+									Custom time range
+								</li>
+							</ul>
+							<div class="dropdown-actions">
+								<button class="cancel" title="Cancel">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+								<button class="confirm" title="Confirm">
+									<span class="glyphicon glyphicon-ok"></span>
+								</button>
+							</div>
+							<div id="datetime-picker">
+								<input id="start-time" type="text" placeholder="MM/DD/YYYY 00:00"/>
+								<input id="end-time" type="text" placeholder="MM/DD/YYYY 00:00"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="top-menu">
+					<ul class="nav">
+						<li class="dropdown-menu-nav nav">
+							<a href="#" class="menu-link" id="nav-menu-config"> <span class="menu-icon icon-config"></span> <span class="menu-label">Admin</span> </a>
+							<ul class="dropdown-panel">
+								<li data-id="1">
+									<a href="#">Team</a>
+								</li>
+								<li data-id="2">
+									<a href="#">Nodes</a>
+								</li>
+								<li data-id="3">
+									<a href="#">Groups</a>
+								</li>
+								<li data-id="4">
+									<a href="#">Applications</a>
+								</li>
+								<li data-id="5">
+									<a href="/alerts/">Alerts</a>
+								</li>
+								<li data-id="6">
+									<a href="/plugins/">Plugins</a>
+								</li>
+								<li data-id="7">
+									<a href="/policypacks/">Policy Packs</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown-menu-nav nav">
+							<a href="#" class="menu-link"> <span class="menu-icon icon-help"></span> <span class="menu-label">Help</span> </a>							
+						</li>
+						<li class="dropdown-menu-nav nav">
+							<a href="#" class="menu-link"> <span class="menu-icon icon-user"></span> <span class="menu-label">
+    						{{ user.first_name }} {{ user.last_name }}
+							</span> </a>
+							<ul class="dropdown-panel">
+								<li data-id="1">
+									<a href="/logout/">Log out</a>
+								</li>
+							</ul>							
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+		</div>
+		<div id="body">
+			{% block body %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
