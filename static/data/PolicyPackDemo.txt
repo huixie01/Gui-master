@@ -1,0 +1,2781 @@
+{
+    ".meta": {
+        "comment": "Monitor the cloud applications running in your environment. ", 
+        "created": 1395367411, 
+        "name": "Cloud Application Monitoring", 
+        "version": "3.10.18980"
+    }, 
+    "AlertAdditionalStat": [], 
+    "AlertEmailGroup": [], 
+    "AlertExclusionInterval": [], 
+    "Chart": [
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 182, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Multimedia"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 202, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Multimedia"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 156, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Multimedia"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 182, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Marketing"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 156, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Marketing"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 202, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Marketing"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 182, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Storage"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 202, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Storage"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 156, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Storage"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 182, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Social"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 202, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Social"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 156, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Social"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 182, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "CloudApp"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 202, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "CloudApp"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 182, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Email"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 202, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Email"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Creative"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Creative"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Analytics"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Analytics"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Miscellaneous"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Miscellaneous"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Creative"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "byte"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Analytics"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 156, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Email"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 156, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "CloudApp"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Miscellaneous"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_COLUMN", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Transactions", 
+            "page": [
+                [
+                    "name", 
+                    "Sports"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Request Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Sports"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }, 
+        {
+            "chart_type": "CUSTOM_AREA", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Response Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Sports"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "trigger", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": "Bytes"
+        }
+    ], 
+    "ChartStat": [
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_LinkedIn", 
+            "is_heatmap": false, 
+            "stat_label": "LinkedIn", 
+            "stat_name": "rsp_app_LinkedIn"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Twitter", 
+            "is_heatmap": false, 
+            "stat_label": "Twitter", 
+            "stat_name": "rsp_app_Twitter"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Facebook", 
+            "is_heatmap": false, 
+            "stat_label": "Facebook", 
+            "stat_name": "rsp_app_Facebook"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_LinkedIn_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "LinkedIn", 
+            "stat_name": "req_app_LinkedIn_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Twitter_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Twitter", 
+            "stat_name": "req_app_Twitter_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Facebook_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Facebook", 
+            "stat_name": "req_app_Facebook_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_LinkedIn_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "LinkedIn", 
+            "stat_name": "rsp_app_LinkedIn_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Twitter_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Twitter", 
+            "stat_name": "rsp_app_Twitter_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Social"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Facebook_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Facebook", 
+            "stat_name": "rsp_app_Facebook_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_GoogleDocs", 
+            "is_heatmap": false, 
+            "stat_label": "Google Docs", 
+            "stat_name": "rsp_app_GoogleDocs"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_GoogleDrive", 
+            "is_heatmap": false, 
+            "stat_label": "Google Drive", 
+            "stat_name": "rsp_app_GoogleDrive"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_DropBox", 
+            "is_heatmap": false, 
+            "stat_label": "Dropbox", 
+            "stat_name": "rsp_app_DropBox"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_GoogleDocs_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Google Docs", 
+            "stat_name": "req_app_GoogleDocs_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_GoogleDrive_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Google Drive", 
+            "stat_name": "req_app_GoogleDrive_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_DropBox_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Dropbox", 
+            "stat_name": "req_app_DropBox_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_GoogleDocs_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Google Docs", 
+            "stat_name": "rsp_app_GoogleDocs_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_GoogleDrive_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Google Drive", 
+            "stat_name": "rsp_app_GoogleDrive_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Storage"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_DropBox_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Dropbox", 
+            "stat_name": "rsp_app_DropBox_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Gmail_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Gmail", 
+            "stat_name": "req_app_Gmail_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Yahoo_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Yahoo", 
+            "stat_name": "req_app_Yahoo_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Hotmail_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Hotmail", 
+            "stat_name": "req_app_Hotmail_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Gmail_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Gmail", 
+            "stat_name": "rsp_app_Gmail_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Yahoo_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Yahoo", 
+            "stat_name": "rsp_app_Yahoo_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Hotmail_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Hotmail", 
+            "stat_name": "rsp_app_Hotmail_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_YouTube_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Youtube", 
+            "stat_name": "req_app_YouTube_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Pandora_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Pandora", 
+            "stat_name": "req_app_Pandora_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Spotify_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Spotify", 
+            "stat_name": "req_app_Spotify_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_YouTube_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Youtube", 
+            "stat_name": "rsp_app_YouTube_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Pandora_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Pandora", 
+            "stat_name": "rsp_app_Pandora_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Spotify_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Spotify", 
+            "stat_name": "rsp_app_Spotify_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_YouTube", 
+            "is_heatmap": false, 
+            "stat_label": "Youtube", 
+            "stat_name": "rsp_app_YouTube"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Pandora", 
+            "is_heatmap": false, 
+            "stat_label": "Pandora", 
+            "stat_name": "rsp_app_Pandora"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Multimedia"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Spotify", 
+            "is_heatmap": false, 
+            "stat_label": "Spotify", 
+            "stat_name": "rsp_app_Spotify"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_SalesForce", 
+            "is_heatmap": false, 
+            "stat_label": "SalesForce", 
+            "stat_name": "rsp_app_SalesForce"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Eloqua", 
+            "is_heatmap": false, 
+            "stat_label": "Eloqua", 
+            "stat_name": "rsp_app_Eloqua"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_QuestionMarket", 
+            "is_heatmap": false, 
+            "stat_label": "QuestionMarket", 
+            "stat_name": "rsp_app_QuestionMarket"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_SalesForce_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Salesforce", 
+            "stat_name": "req_app_SalesForce_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Eloqua_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Eloqua", 
+            "stat_name": "req_app_Eloqua_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_QuestionMarket_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "QuestionMarket", 
+            "stat_name": "req_app_QuestionMarket_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_SalesForce_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "SalesForce", 
+            "stat_name": "rsp_app_SalesForce_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Eloqua_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Eloqua", 
+            "stat_name": "rsp_app_Eloqua_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Marketing"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_QuestionMarket_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "QuestionMarket", 
+            "stat_name": "rsp_app_QuestionMarket_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Creative"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Flickr_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Flickr", 
+            "stat_name": "req_app_Flickr_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Creative"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Flickr_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Flickr", 
+            "stat_name": "rsp_app_Flickr_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Analytics"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Ezyinsights_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Ezyinsights", 
+            "stat_name": "rsp_app_Ezyinsights_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Analytics"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_Ezyinsights_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Ezyinsights", 
+            "stat_name": "req_app_Ezyinsights_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Miscellaneous"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_reddit_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Reddit", 
+            "stat_name": "req_app_reddit_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Miscellaneous"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_reddit_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Reddit", 
+            "stat_name": "rsp_app_reddit_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Gmail", 
+            "is_heatmap": false, 
+            "stat_label": "Gmail", 
+            "stat_name": "rsp_app_Gmail"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Yahoo", 
+            "is_heatmap": false, 
+            "stat_label": "Yahoo", 
+            "stat_name": "rsp_app_Yahoo"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Email"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Hotmail", 
+            "is_heatmap": false, 
+            "stat_label": "Hotmail", 
+            "stat_name": "rsp_app_Hotmail"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Marketing", 
+            "is_heatmap": false, 
+            "stat_label": "Marketing", 
+            "stat_name": "rsp_cat_Marketing"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Email", 
+            "is_heatmap": false, 
+            "stat_label": "Email", 
+            "stat_name": "rsp_cat_Email"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Multimedia", 
+            "is_heatmap": false, 
+            "stat_label": "Multimedia", 
+            "stat_name": "rsp_cat_Multimedia"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Social", 
+            "is_heatmap": false, 
+            "stat_label": "Social", 
+            "stat_name": "rsp_cat_Social"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Storage", 
+            "is_heatmap": false, 
+            "stat_label": "Storage", 
+            "stat_name": "rsp_cat_Storage"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Analytics", 
+            "is_heatmap": false, 
+            "stat_label": "Analytics", 
+            "stat_name": "rsp_cat_Analytics"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Creative", 
+            "is_heatmap": false, 
+            "stat_label": "Creative", 
+            "stat_name": "rsp_cat_Creative"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Misc", 
+            "is_heatmap": false, 
+            "stat_label": "Miscellaneous", 
+            "stat_name": "rsp_cat_Misc"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Marketing_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Marketing", 
+            "stat_name": "req_cat_Marketing_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Email_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Email", 
+            "stat_name": "req_cat_Email_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Multimedia_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Multimedia", 
+            "stat_name": "req_cat_Multimedia_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Social_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Social", 
+            "stat_name": "req_cat_Social_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Social_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Storage", 
+            "stat_name": "req_cat_Storage_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Analytics_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Analytics", 
+            "stat_name": "req_cat_Analytics_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Creative_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Creative", 
+            "stat_name": "req_cat_Creative_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_cat_Misc_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Miscellaneous", 
+            "stat_name": "req_cat_Misc_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Marketing_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Marketing", 
+            "stat_name": "rsp_cat_Marketing_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Email_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Email", 
+            "stat_name": "rsp_cat_Email_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Multimedia_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Multimedia", 
+            "stat_name": "rsp_cat_Multimedia_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Social_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Social", 
+            "stat_name": "rsp_cat_Social_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Storage_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Storage", 
+            "stat_name": "rsp_cat_Storage_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Analytics_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Analytics", 
+            "stat_name": "rsp_cat_Analytics_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Creative_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Creative", 
+            "stat_name": "rsp_cat_Creative_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "CloudApp"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_cat_Misc_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "Miscellaneous", 
+            "stat_name": "rsp_cat_Misc_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Creative"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Flickr", 
+            "is_heatmap": false, 
+            "stat_label": "Flickr", 
+            "stat_name": "rsp_app_Flickr"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Miscellaneous"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_reddit", 
+            "is_heatmap": false, 
+            "stat_label": "Reddit", 
+            "stat_name": "rsp_app_reddit"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Analytics"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_Ezyinsights", 
+            "is_heatmap": false, 
+            "stat_label": "Ezyinsights", 
+            "stat_name": "rsp_app_Ezyinsights"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Sports"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_ESPN", 
+            "is_heatmap": false, 
+            "stat_label": "ESPN", 
+            "stat_name": "rsp_app_ESPN"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Transactions"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Sports"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_NCAA", 
+            "is_heatmap": false, 
+            "stat_label": "NCAA", 
+            "stat_name": "rsp_app_NCAA"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Sports"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_ESPN_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "ESPN", 
+            "stat_name": "req_app_ESPN_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Request Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Sports"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "req_app_NCAA_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "NCAA", 
+            "stat_name": "req_app_NCAA_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Sports"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_ESPN_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "ESPN", 
+            "stat_name": "rsp_app_ESPN_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Response Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Sports"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "rsp_app_NCAA_bytes", 
+            "is_heatmap": false, 
+            "stat_label": "NCAA", 
+            "stat_name": "rsp_app_NCAA_bytes"
+        }
+    ], 
+    "Page": [
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Analytics", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "CloudApp", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Creative", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Email", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Marketing", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Miscellaneous", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Multimedia", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Social", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Storage", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "", 
+            "disabled": true, 
+            "name": "Sports", 
+            "object_type": "application"
+        }
+    ], 
+    "Trigger": [
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "Monitor cloud apps running on your network", 
+            "debug": true, 
+            "disabled": true, 
+            "event": "FLOW_TURN, HTTP_RESPONSE, SSL_OPEN", 
+            "hints": "{\"payloadBytes\":0}", 
+            "name": "Cloud Application Monitoring", 
+            "priority": 0, 
+            "script": "/* Trigger Name: Cloud Application Monitoring\n * Author: ExtraHop\n * Date: 7-12-2013\n * Description: Monitor the cloud applications that are running in \n                your environment.\n * Event: FLOW_TURN, HTTP_RESPONSE, SSL_OPEN\n * Has \"USER_SET\": True\n */\n\nvar host;\nvar app;\nvar category;\nvar client_ip;\nvar req_bytes;\nvar ipaddr;\nvar rsp_bytes;\nvar application = 'CloudApps';\n\nif (event == 'HTTP_RESPONSE') {\n    host = HTTP.host;\n} else if (event == 'SSL_OPEN') {\n    // See if the SSL session can be associated with a host\n    ipaddr = new IPAddress(Flow.server.ipaddr);\n    if (ipaddr.hostNames) {\n        host = ipaddr.hostNames[0];\n    }\n} else if (event == 'FLOW_TURN') {\n    // Only process SSL flow turns\n    if (Flow.port1 == 443 || Flow.port2 == 443) {\n        host = Flow.store.host;    \n    }\n}\nif (host == undefined) {\n    return;\n}\n// USER_SET: Add additional applications. All new apps must be added to\n//           corresponding category page. New categories require the\n//           creation of a new custom page. See the forum post for these steps.\n\n\n//MULTIMEDIA\nif (host.search('pandora') > -1) {\n    app = 'Pandora';\n    category = 'Multimedia';\n} else if (host.search('spotify') > -1) {\n    app = 'Spotify';\n    category = 'Multimedia';\n} else if (host.search('youtube') > -1) {\n    app = 'YouTube';\n    category = 'Multimedia';\n} \n\n//MARKETING\n  else if (host.search('salesforce.com') > -1 || host.search('force.com') > -1 || host.search('salesforce.net') > -1) {\n    app = 'SalesForce';\n    category = 'Marketing';\n} else if (host.search('eloqua') > -1) {\n    app = 'Eloqua';\n    category = 'Marketing';  \n} else if (host.search('questionmarket') > -1) {\n    app = 'QuestionMarket';\n    category = 'Marketing';\n}\n\n//EMAIL\n  else if (host.search('mail.yahoo') > -1) {\n    app = 'Yahoo';\n    category = 'Email';\n} else if (host.search('mail.google') > -1) {\n    app = 'Gmail';\n    category = 'Email';\n} else if (host.search('hotmail') > -1) {\n    app = 'Hotmail';\n    category = 'Email';\n} \n\n//STORAGE\n  else if (host.search('docs.google') > -1) {\n    app = 'GoogleDocs';\n    category = 'Storage';\n} else if (host.search('drive.google') > -1) {\n    app = 'GoogleDrive';\n    category = 'Storage';\n} else if (host.search('dropbox') > -1) {\n    app = 'DropBox';\n    category = 'Storage';\n}  \n\n//CREATIVE\n  else if (host.search('flickr') > -1) {\n    app = 'Flickr';\n    category = 'Creative';\n} \n\n//SOCIAL\n  else if (host.search('linkedin') > -1) {\n    app = 'LinkedIn';\n    category = 'Social';\n} else if (host.search('twitter') > -1) {\n    app = 'Twitter';\n    category = 'Social';\n} else if (host.search('facebook') > -1) {\n    app = 'Facebook';\n    category = 'Social';\n} \n\n//ANALYTICS\n  else if (host.search('ezyinsights') > -1) {\n    app = 'Ezyinsights';\n    category = 'Analytics';\n} \n\n//DEVELOPMENT\n  else if (host.search('github') > -1) {\n    app = 'GitHub';\n    category = 'Development';\n} else if (host.search('github') > -1) {\n    app = 'GitHub';\n    category = 'Development';\n} \n\n//MISC. \n  else if (host.search('reddit') > -1) {\n    app = 'reddit';\n    category = 'Misc';   \n} \n\n//SPORTS. \n  else if (host.search('espn') > -1) {\n    app = 'ESPN';\n    category = 'Sports';   \n} \n\n  else if (host.search('ncaa') > -1) {\n    app = 'NCAA';\n    category = 'Sports';   \n}\n\n//No Category so exit\nelse {\n    return;\n}\n\nif (event == 'HTTP_RESPONSE') {\n    req_bytes = HTTP.reqBytes;\n    rsp_bytes = HTTP.rspBytes;\n    Application(application).commit();\n} else if (event == 'SSL_OPEN') {\n    // Store the host\n    Flow.store.host = host;    \n    return;\n} else if (event == 'FLOW_TURN') {\n    // process turns for SSL flows\n    req_bytes = Flow.client.bytes;\n    rsp_bytes = Flow.server.bytes;\n} else { \n   return;\n}\n\nclient_ip = Flow.client.ipaddr;\nApplication(application).metricAddCount('rsp', 1);\n\n// Add Applicaiton Metrics if app is defined\nif (app != undefined){\n    Application(application).metricAddCount('rsp_cat_' + category, 1);\n    Application(application).metricAddCount('req_cat_' + category, 1);\n    Application(application).metricAddCount('rsp_cat_' + category + '_bytes', rsp_bytes);\n    Application(application).metricAddCount('req_cat_' + category + '_bytes', req_bytes);\n    Application(application).metricAddDetailCount('req_cat_' + category, client_ip, 1);\n    Application(application).metricAddDetailCount('rsp_cat_' + category, client_ip, 1);\n    Application(application).metricAddDetailCount('rsp_cat_' + category + '_bytes', client_ip, rsp_bytes);\n    Application(application).metricAddDetailCount('req_cat_' + category + '_bytes', client_ip, req_bytes);\n// Add Applicaiton Metrics\n    Application(application).metricAddCount('rsp_app_' + app,1);\n    Application(application).metricAddCount('req_app_' + app,1);\n    Application(application).metricAddCount('rsp_app_' + app + '_bytes', rsp_bytes);\n    Application(application).metricAddCount('req_app_' + app + '_bytes', req_bytes);\n    Application(application).metricAddDetailCount('req_app_' + app, client_ip, 1);\n    Application(application).metricAddDetailCount('rsp_app_' + app, client_ip, 1);\n    Application(application).metricAddDetailCount('rsp_app_' + app + '_bytes', client_ip, rsp_bytes);\n    Application(application).metricAddDetailCount('req_app_' + app + '_bytes', client_ip, req_bytes);    \n}\nelse{\n    return;\n}"
+        }
+    ]
+}

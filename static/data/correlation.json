@@ -1,0 +1,38 @@
+{
+"depths":[
+{"id":0,"name":"Web Services","ip":"192.168.0.1/24\n10.1.10.1/16"},
+{"id":1,"name":"Backend Systems","ip":"192.168.0.1/24\n10.1.10.1/16"},
+{"id":2,"name":"Internal Users","ip":"192.168.0.1/24\n10.1.10.1/16"}
+],
+"nodes":[
+{"id":0, "name":"WebServer1", "depth":0, "order": 0, "type":1 },
+{"id":1, "name":"WebServer2", "depth":0, "order": 1, "type":1 },
+{"id":2, "name":"WebServer3", "depth":0, "order": 2, "type":1 },
+{"id":3, "name":"Database1", "depth":1, "order": 0, "type":2 },
+{"id":4, "name":"Database2", "depth":1, "order": 1, "type":2 },
+{"id":5, "name":"Tuxedo1", "depth":1, "order": 2, "type":2 },
+{"id":6, "name":"Tuxedo2", "depth":1, "order": 3, "type":2 },
+{"id":7, "name":"CRM Web", "depth":1, "order": 4, "type":2 },
+{"id":8, "name":"ERP Web", "depth":1, "order": 5, "type":2 },
+{"id":9, "name":"MIS", "depth":1, "order": 6, "type":3 },
+{"id":10, "name":"Josh", "depth":2, "order": 0, "type":3 },
+{"id":11, "name":"Jack", "depth":2, "order": 1, "type":3 },
+{"id":12, "name":"Leo", "depth":2, "order": 2, "type":3 },
+{"id":13, "name":"Peter", "depth":2, "order": 3, "type":3 }
+],
+"links":[
+{"source":0,"target":2,"value":15.453,"type":"http.reqs:http.reqs"},
+{"source":0,"target":3,"value":15.453,"type":"http.reqs:db.reqs"},
+{"source":1,"target":3,"value":19.726,"type":"http.reqs:db.reqs"},
+{"source":2,"target":4,"value":27.14,"type":"http.reqs:db.reqs"},
+{"source":0,"target":5,"value":15.453,"type":"http.reqs:cpu.busy"},
+{"source":1,"target":5,"value":19.726,"type":"http.reqs:cpu.busy"},
+{"source":2,"target":6,"value":27.14,"type":"http.reqs:cpu.busy"},
+{"source":10,"target":7,"value":27.14,"type":"db.reqs:db.reqs"},
+{"source":11,"target":8,"value":27.14,"type":"http.reqs:http.reqs"},
+{"source":12,"target":8,"value":27.14,"type":"http.reqs:http.reqs"},
+{"source":13,"target":9,"value":27.14,"type":"http.reqs:http.reqs"},
+{"source":9,"target":3,"value":27.14,"type":"http.reqs:db.reqs"},
+{"source":3,"target":4,"value":27.14,"type":"db.reqs:db.reqs"},
+{"source":5,"target":6,"value":27.14,"type":"cpu.busy:cpu.busy"}
+]}

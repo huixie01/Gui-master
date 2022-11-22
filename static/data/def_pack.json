@@ -1,0 +1,1237 @@
+{
+    ".meta": {
+        "comment": "Initial configuration provided by ExtraHop", 
+        "created": 1409837834, 
+        "name": "ExtraHop Defaults", 
+        "version": "3.10.20427"
+    }, 
+    "Alert": [
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when an ARP storm is detected.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "mcast_pkts", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "ARP Storm", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{\"key1\": \"^ARP$\"}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.capture.net", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when database errors are higher than usual.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Database Server Errors", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.db_server", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when web server errors are higher than usual.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Web Server Errors", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.http_server", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when network traffic is abnormally high.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "bytes", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Network-wide Traffic Spike", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.capture.net", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when 75th percentile of the HTTP processing time is abnormally slow (early indicator that things are slowing down).", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "tprocess", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Slow Web Response Time", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{\"dset_param\": \"q3\"}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.http_server", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when 75th percentile of the database processing time is abnormally slow (early indicator that things are slowing down).", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "tprocess", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Slow Database Response Time", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{\"dset_param\": \"q3\"}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.db_server", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when traffic on a backup server is abnormally low (may indicate a failed backup).", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "bytes_in", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Low Storage Traffic In (backup failed?)", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "< normal", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.net", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when number of Retransmission Timeouts (RTOs) out of a device is abnormally high.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rto_out", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "Network Congestion", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.tcp", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when median of the round-trip time (RTT) to a device is abnormally high.", 
+            "disabled": true, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rtt", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "High RTT Times", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{\"dset_param\": \"median\"}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.tcp", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when number of DNS host query errors is abnormally high.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "host_error", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30, 
+            "name": "DNS Errors", 
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "extrahop.device.dns_server", 
+            "units": "period"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of web errors is greater than 5%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "Web Error Ratio - Red", 
+            "notify_snmp": false, 
+            "operand": ".05", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 1, 
+            "stat_name": "extrahop.application.http", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of web errors is greater than 1%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "Web Error Ratio - Orange", 
+            "notify_snmp": false, 
+            "operand": ".01", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 3, 
+            "stat_name": "extrahop.application.http", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of web errors is greater than 0.1%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "Web Error Ratio - Yellow", 
+            "notify_snmp": false, 
+            "operand": ".001", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 5, 
+            "stat_name": "extrahop.application.http", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of DB errors is greater than 5%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "DB Error Ratio - Red", 
+            "notify_snmp": false, 
+            "operand": ".05", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 1, 
+            "stat_name": "extrahop.application.db", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of DB errors is greater than 1%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "DB Error Ratio - Orange", 
+            "notify_snmp": false, 
+            "operand": ".01", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 3, 
+            "stat_name": "extrahop.application.db", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of DB errors is greater than 0.1%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "DB Error Ratio - Yellow", 
+            "notify_snmp": false, 
+            "operand": ".001", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 5, 
+            "stat_name": "extrahop.application.db", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of DNS errors is greater than 5%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "DNS Error Ratio - Red", 
+            "notify_snmp": false, 
+            "operand": ".05", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 1, 
+            "stat_name": "extrahop.application.dns", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of DNS errors is greater than 1%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "DNS Error Ratio - Orange", 
+            "notify_snmp": false, 
+            "operand": ".01", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 3, 
+            "stat_name": "extrahop.application.dns", 
+            "units": "none"
+        }, 
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Alert triggered when ratio of DNS errors is greater than 0.1%.", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "rsp_error", 
+            "field_name2": "rsp", 
+            "field_op": "/", 
+            "interval_length": 30, 
+            "name": "DNS Error Ratio - Yellow", 
+            "notify_snmp": false, 
+            "operand": ".001", 
+            "operator": ">", 
+            "param": "{}", 
+            "param2": "{}", 
+            "refire_interval": 300, 
+            "severity": 5, 
+            "stat_name": "extrahop.application.dns", 
+            "units": "none"
+        }
+    ], 
+    "Chart": [
+        {
+            "chart_type": "CUSTOM_SET_BAR", 
+            "dset_chart_style": "LOW_HIGH", 
+            "height": 200, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "HTTP Performance", 
+            "page": [
+                [
+                    "name", 
+                    "Custom App Page"
+                ]
+            ], 
+            "percentiles": "25,75", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_dset", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_SET_BAR", 
+            "dset_chart_style": "LOW_HIGH", 
+            "height": 200, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Database Performance", 
+            "page": [
+                [
+                    "name", 
+                    "Custom App Page"
+                ]
+            ], 
+            "percentiles": "25,75", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_dset", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_SET_LINE", 
+            "dset_chart_style": "LOW_HIGH", 
+            "height": 222, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "Storage Performance", 
+            "page": [
+                [
+                    "name", 
+                    "Custom App Page"
+                ]
+            ], 
+            "percentiles": "25,75", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_dset", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_SET_LINE", 
+            "dset_chart_style": "LOW_HIGH", 
+            "height": 200, 
+            "index": 3, 
+            "log_axis": false, 
+            "name": "DNS Performance", 
+            "page": [
+                [
+                    "name", 
+                    "Custom App Page"
+                ]
+            ], 
+            "percentiles": "25,75", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_dset", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_SET_LINE", 
+            "dset_chart_style": "LOW_HIGH", 
+            "height": 200, 
+            "index": 4, 
+            "log_axis": false, 
+            "name": "ICA Performance", 
+            "page": [
+                [
+                    "name", 
+                    "Custom App Page"
+                ]
+            ], 
+            "percentiles": "25,75", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_dset", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_RATE", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 0, 
+            "log_axis": false, 
+            "name": "Unicast, Multicast & Broadcast Packet Rates", 
+            "page": [
+                [
+                    "name", 
+                    "Custom Network Page"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_RATE", 
+            "dset_chart_style": "", 
+            "height": 151, 
+            "index": 2, 
+            "log_axis": false, 
+            "name": "ARP Frames", 
+            "page": [
+                [
+                    "name", 
+                    "Custom Network Page"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_RATE", 
+            "dset_chart_style": "", 
+            "height": 155, 
+            "index": 3, 
+            "log_axis": false, 
+            "name": "ICMPv6 Packets", 
+            "page": [
+                [
+                    "name", 
+                    "Custom Network Page"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_RATE", 
+            "dset_chart_style": "", 
+            "height": 151, 
+            "index": 4, 
+            "log_axis": false, 
+            "name": "IP Fragments", 
+            "page": [
+                [
+                    "name", 
+                    "Custom Network Page"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }, 
+        {
+            "chart_type": "CUSTOM_RATE", 
+            "dset_chart_style": "", 
+            "height": 200, 
+            "index": 1, 
+            "log_axis": false, 
+            "name": "Unicast, Multicast & Broadcast Bytes", 
+            "page": [
+                [
+                    "name", 
+                    "Custom Network Page"
+                ]
+            ], 
+            "percentiles": "", 
+            "source_type": "built-in", 
+            "sset_details": true, 
+            "stat_type": "custom_count", 
+            "units": ""
+        }
+    ], 
+    "ChartStat": [
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "HTTP Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Request Transfer", 
+            "stat_name": "http:req_xfer"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "HTTP Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Response Transfer", 
+            "stat_name": "http:rsp_xfer"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "HTTP Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "http_uri_detail:rtt", 
+            "stat_label": "Round Trip Time", 
+            "stat_name": "http:rtt"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "HTTP Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "http_uri_detail:tprocess", 
+            "stat_label": "Processing Time", 
+            "stat_name": "http:tprocess"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Database Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Request Transfer", 
+            "stat_name": "db:req_xfer"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Database Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Response Transfer", 
+            "stat_name": "db:rsp_xfer"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Database Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "db_method_detail:rtt", 
+            "stat_label": "Round Trip Time", 
+            "stat_name": "db:rtt"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Database Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "db_method_detail:tprocess", 
+            "stat_label": "Processing Time", 
+            "stat_name": "db:tprocess"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Storage Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "nas_file_info_detail:access_time", 
+            "stat_label": "Access Time", 
+            "stat_name": "nas:access_time"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "Storage Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "nas_file_info_detail:rtt", 
+            "stat_label": "Round Trip Time", 
+            "stat_name": "nas:rtt"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Unicast, Multicast & Broadcast Packet Rates"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Broadcast Packets", 
+            "stat_name": "net:frame_cast_broadcast_pkts"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Unicast, Multicast & Broadcast Packet Rates"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Multicast Packets", 
+            "stat_name": "net:frame_cast_multicast_pkts"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    0
+                ], 
+                [
+                    "name", 
+                    "Unicast, Multicast & Broadcast Packet Rates"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Unicast Packets", 
+            "stat_name": "net:frame_cast_unicast_pkts"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    3
+                ], 
+                [
+                    "name", 
+                    "DNS Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "dns_server_addr_detail:tprocess", 
+            "stat_label": "Processing Time", 
+            "stat_name": "dns:tprocess"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    4
+                ], 
+                [
+                    "name", 
+                    "ICA Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "ica_app_detail:client_latency", 
+            "stat_label": "Client Latency", 
+            "stat_name": "ica:client_latency"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    4
+                ], 
+                [
+                    "name", 
+                    "ICA Performance"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom App Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "ica_app_detail:rtt", 
+            "stat_label": "Round Trip Time", 
+            "stat_name": "ica:rtt"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    2
+                ], 
+                [
+                    "name", 
+                    "ARP Frames"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "ARP Frames", 
+            "stat_name": "net:frame_type_arp"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    3
+                ], 
+                [
+                    "name", 
+                    "ICMPv6 Packets"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "ICMPv6 Packets", 
+            "stat_name": "net:ip_type_pkts?ICMP6"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    4
+                ], 
+                [
+                    "name", 
+                    "IP Fragments"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "IP Fragments", 
+            "stat_name": "net:ip_frags"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Unicast, Multicast & Broadcast Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Broadcast Bytes", 
+            "stat_name": "net:frame_cast_broadcast_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Unicast, Multicast & Broadcast Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Multicast Bytes", 
+            "stat_name": "net:frame_cast_multicast_bytes"
+        }, 
+        {
+            "chart": [
+                [
+                    "index", 
+                    1
+                ], 
+                [
+                    "name", 
+                    "Unicast, Multicast & Broadcast Bytes"
+                ], 
+                [
+                    "page", 
+                    [
+                        [
+                            "name", 
+                            "Custom Network Page"
+                        ]
+                    ]
+                ]
+            ], 
+            "detail_stat_name": "", 
+            "stat_label": "Unicast Bytes", 
+            "stat_name": "net:frame_cast_unicast_bytes"
+        }
+    ], 
+    "DeviceGroup": [
+        {
+            "comment": "VMware virtual machines", 
+            "dynamic": true, 
+            "field": "vendor", 
+            "member_set": [], 
+            "name": "VMware", 
+            "value": "\\Qvmware\\E"
+        }
+    ], 
+    "Geomap": [
+        {
+            "apply_all": true, 
+            "color": "tangerine", 
+            "comment": "Built-in geomap of HTTP client requests", 
+            "field_name": "req", 
+            "interval": "auto", 
+            "map_style": "light", 
+            "name": "HTTP Client Requests", 
+            "param": null, 
+            "region": "world", 
+            "stat_name": "extrahop.application.http_client_addr_detail"
+        }
+    ], 
+    "Page": [
+        {
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Application performance overview", 
+            "disabled": false, 
+            "name": "Custom App Page", 
+            "object_type": "application"
+        }, 
+        {
+            "apply_all": true, 
+            "author": "ExtraHop", 
+            "comment": "Network performance overview", 
+            "disabled": false, 
+            "name": "Custom Network Page", 
+            "object_type": "capture"
+        }
+    ], 
+    "Trigger": [
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "Example trigger showing how to define an Application with HTTP.", 
+            "debug": false, 
+            "disabled": true, 
+            "event": "HTTP_RESPONSE", 
+            "hints": "{}", 
+            "name": "Sample HTTP Application", 
+            "priority": 0, 
+            "script": "// Modify these variables for your environment.\nvar appName = \"[application name]\";\nvar uriSubstring = \"[uri substring to match]\";\n\nif (!HTTP.uri) {\n    return;\n}\n\nif (HTTP.uri.indexOf(uriSubstring) !== -1) {\n    Application(appName).commit();\n}\n"
+        }, 
+        {
+            "apply_all": false, 
+            "author": "ExtraHop", 
+            "comment": "Example trigger showing how to define an Application with DB.", 
+            "debug": false, 
+            "disabled": true, 
+            "event": "DB_RESPONSE", 
+            "hints": "{}", 
+            "name": "Sample DB Application", 
+            "priority": 0, 
+            "script": "// Modify these variables for your environment.\nvar appName = \"[application name]\";\nvar tableSubstring = \"[table substring to match]\";\n\nif (!DB.table) {\n    return;\n}\n\nif (DB.table.indexOf(tableSubstring) !== -1) {\n    Application(appName).commit();\n}\n"
+        }
+    ]
+}

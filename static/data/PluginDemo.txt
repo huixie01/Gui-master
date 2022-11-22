@@ -1,0 +1,185 @@
+/* Trigger Name: Cloud Application Monitoring
+ * Author: Sodero
+ * Date: 7-12-2013
+ * Description: Monitor the cloud applications that are running in 
+                your environment.
+ * Event: FLOW_TURN, HTTP_RESPONSE, SSL_OPEN
+ * Has "USER_SET": True
+ */
+
+var host;
+var app;
+var category;
+var client_ip;
+var req_bytes;
+var ipaddr;
+var rsp_bytes;
+var application = 'CloudApps';
+
+if (event == 'HTTP_RESPONSE') {
+    host = HTTP.host;
+} else if (event == 'SSL_OPEN') {
+    // See if the SSL session can be associated with a host
+    ipaddr = new IPAddress(Flow.server.ipaddr);
+    if (ipaddr.hostNames) {
+        host = ipaddr.hostNames[0];
+    }
+} else if (event == 'FLOW_TURN') {
+    // Only process SSL flow turns
+    if (Flow.port1 == 443 || Flow.port2 == 443) {
+        host = Flow.store.host;    
+    }
+}
+if (host == undefined) {
+    return;
+}
+// USER_SET: Add additional applications. All new apps must be added to
+//           corresponding category page. New categories require the
+//           creation of a new custom page. See the forum post for these steps.
+
+
+//MULTIMEDIA
+if (host.search('pandora') > -1) {
+    app = 'Pandora';
+    category = 'Multimedia';
+} else if (host.search('spotify') > -1) {
+    app = 'Spotify';
+    category = 'Multimedia';
+} else if (host.search('youtube') > -1) {
+    app = 'YouTube';
+    category = 'Multimedia';
+} 
+
+//MARKETING
+  else if (host.search('salesforce.com') > -1 || host.search('force.com') > -1 || host.search('salesforce.net') > -1) {
+    app = 'SalesForce';
+    category = 'Marketing';
+} else if (host.search('eloqua') > -1) {
+    app = 'Eloqua';
+    category = 'Marketing';  
+} else if (host.search('questionmarket') > -1) {
+    app = 'QuestionMarket';
+    category = 'Marketing';
+}
+
+//EMAIL
+  else if (host.search('mail.yahoo') > -1) {
+    app = 'Yahoo';
+    category = 'Email';
+} else if (host.search('mail.google') > -1) {
+    app = 'Gmail';
+    category = 'Email';
+} else if (host.search('hotmail') > -1) {
+    app = 'Hotmail';
+    category = 'Email';
+} 
+
+//STORAGE
+  else if (host.search('docs.google') > -1) {
+    app = 'GoogleDocs';
+    category = 'Storage';
+} else if (host.search('drive.google') > -1) {
+    app = 'GoogleDrive';
+    category = 'Storage';
+} else if (host.search('dropbox') > -1) {
+    app = 'DropBox';
+    category = 'Storage';
+}  
+
+//CREATIVE
+  else if (host.search('flickr') > -1) {
+    app = 'Flickr';
+    category = 'Creative';
+} 
+
+//SOCIAL
+  else if (host.search('linkedin') > -1) {
+    app = 'LinkedIn';
+    category = 'Social';
+} else if (host.search('twitter') > -1) {
+    app = 'Twitter';
+    category = 'Social';
+} else if (host.search('facebook') > -1) {
+    app = 'Facebook';
+    category = 'Social';
+} 
+
+//ANALYTICS
+  else if (host.search('ezyinsights') > -1) {
+    app = 'Ezyinsights';
+    category = 'Analytics';
+} 
+
+//DEVELOPMENT
+  else if (host.search('github') > -1) {
+    app = 'GitHub';
+    category = 'Development';
+} else if (host.search('github') > -1) {
+    app = 'GitHub';
+    category = 'Development';
+} 
+
+//MISC. 
+  else if (host.search('reddit') > -1) {
+    app = 'reddit';
+    category = 'Misc';   
+} 
+
+//SPORTS. 
+  else if (host.search('espn') > -1) {
+    app = 'ESPN';
+    category = 'Sports';   
+} 
+
+  else if (host.search('ncaa') > -1) {
+    app = 'NCAA';
+    category = 'Sports';   
+}
+
+//No Category so exit
+else {
+    return;
+}
+
+if (event == 'HTTP_RESPONSE') {
+    req_bytes = HTTP.reqBytes;
+    rsp_bytes = HTTP.rspBytes;
+    Application(application).commit();
+} else if (event == 'SSL_OPEN') {
+    // Store the host
+    Flow.store.host = host;    
+    return;
+} else if (event == 'FLOW_TURN') {
+    // process turns for SSL flows
+    req_bytes = Flow.client.bytes;
+    rsp_bytes = Flow.server.bytes;
+} else { 
+   return;
+}
+
+client_ip = Flow.client.ipaddr;
+Application(application).metricAddCount('rsp', 1);
+
+// Add Applicaiton Metrics if app is defined
+if (app != undefined){
+    Application(application).metricAddCount('rsp_cat_' + category, 1);
+    Application(application).metricAddCount('req_cat_' + category, 1);
+    Application(application).metricAddCount('rsp_cat_' + category + '_bytes', rsp_bytes);
+    Application(application).metricAddCount('req_cat_' + category + '_bytes', req_bytes);
+    Application(application).metricAddDetailCount('req_cat_' + category, client_ip, 1);
+    Application(application).metricAddDetailCount('rsp_cat_' + category, client_ip, 1);
+    Application(application).metricAddDetailCount('rsp_cat_' + category + '_bytes', client_ip, rsp_bytes);
+    Application(application).metricAddDetailCount('req_cat_' + category + '_bytes', client_ip, req_bytes);
+// Add Applicaiton Metrics
+    Application(application).metricAddCount('rsp_app_' + app,1);
+    Application(application).metricAddCount('req_app_' + app,1);
+    Application(application).metricAddCount('rsp_app_' + app + '_bytes', rsp_bytes);
+    Application(application).metricAddCount('req_app_' + app + '_bytes', req_bytes);
+    Application(application).metricAddDetailCount('req_app_' + app, client_ip, 1);
+    Application(application).metricAddDetailCount('rsp_app_' + app, client_ip, 1);
+    Application(application).metricAddDetailCount('rsp_app_' + app + '_bytes', client_ip, rsp_bytes);
+    Application(application).metricAddDetailCount('req_app_' + app + '_bytes', client_ip, req_bytes);    
+}
+else{
+    return;
+}

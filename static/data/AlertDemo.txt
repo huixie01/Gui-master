@@ -1,0 +1,24 @@
+{ "Alert": [
+        {
+            "additional_emails": "", 
+            "apply_all": true, 
+            "author": "Sodero", 
+            "name": "Cloud Apps usage Alert", 
+            "disabled": false, 
+            "emailgroups": [], 
+            "exclusion_intervals": [], 
+            "field_name": "custom.cloudapp.bytes", 
+            "field_name2": null, 
+            "field_op": null, 
+            "interval_length": 30,  
+            "notify_snmp": true, 
+            "operand": "6", 
+            "operator": "> normal", 
+            "param": "{\"key1\": \"^NONE$\"}", 
+            "param2": "{}", 
+            "refire_interval": 0, 
+            "severity": 3, 
+            "stat_name": "", 
+            "units": "period"
+        }]
+}
