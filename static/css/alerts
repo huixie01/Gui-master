@@ -1,0 +1,104 @@
+/* auto-complete */
+.auto-complete {
+	position: relative;
+}
+
+.auto-complete ul {
+	border: 1px solid rgb(210, 210, 210);
+	border-color: #66AFE9;
+	outline: 0px none;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+	border-top: none;
+	width: 100%;
+	overflow: auto;
+	background-color: #FFFFFF;
+	position: absolute;
+	left: 0px;
+	top: -13px;
+	display: none;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-bottom: 5px;
+	z-index: 1000;
+	max-height: 180px;
+}
+
+.auto-complete ul li {
+	white-space: nowrap;
+	font-size: 13px;
+	line-height: 25px;
+	height: 25px;
+	text-align: left;
+	padding-left: 5px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor: pointer;
+}
+
+.auto-complete ul li.selected {
+	background-color: #006699;
+	color: #FFF;
+}
+
+#live-metric-chart {
+	height: 130px;
+}
+
+.alert-define .row {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.alert-define label.row-label {
+	display: inline-block;
+	float: left;
+	margin-top: 7px;
+}
+
+.alert-define .caret {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+}
+
+.alert-define button {
+	width: 100%;
+	text-align: left;
+}
+
+/* plot styles */
+.axis path, .axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.x.axis path {
+	display: none;
+}
+
+.line {
+	fill: none;
+	stroke: steelblue;
+	stroke-width: 1.5px;
+}
+
+.grid .tick {
+	stroke: lightgrey;
+	opacity: 0.7;
+}
+.grid path {
+	stroke-width: 0;
+}
+
+.bar {
+	fill: steelblue;
+}
+
+.bar:hover {
+	fill: brown;
+}
+
+.arc path {
+	stroke: #fff;
+}
